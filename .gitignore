@@ -2,3 +2,5 @@
 /tools/
 .DS_Store
 /lead-funnel.twbx
+.~*.twbr
+hyperd*.log
