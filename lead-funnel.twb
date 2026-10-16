@@ -8,29 +8,11 @@
     <datasource caption="Olist leads 2018" inline="true" name="federated.0b2bleadfunnel0olist0dash01" version="18.1">
       <connection class="federated">
         <named-connections>
-          <named-connection caption="olist_leads_2018" name="textscan.0b2bleadfunnel0olist0csv001">
-            <connection class="textscan" directory="data" filename="olist_leads_2018.csv" password="" server="" />
+          <named-connection caption="olist_leads_2018" name="hyper.0b2bleadfunnel0olist0hyper01">
+            <connection authentication="auth-none" author-locale="en_US" class="hyper" dbname="data/olist_leads_2018.hyper" default-settings="yes" port="" sslmode="" username="tableau_internal_user" />
           </named-connection>
         </named-connections>
-        <relation connection="textscan.0b2bleadfunnel0olist0csv001" name="olist_leads_2018.csv" table="[olist_leads_2018#csv]" type="table">
-          <columns character-set="UTF-8" header="yes" locale="en_US" separator=",">
-            <column datatype="string" name="lead_id" ordinal="0" />
-            <column datatype="date" name="first_contact_date" ordinal="1" />
-            <column datatype="string" name="channel" ordinal="2" />
-            <column datatype="string" name="landing_page" ordinal="3" />
-            <column datatype="string" name="landing_page_top" ordinal="4" />
-            <column datatype="integer" name="won" ordinal="5" />
-            <column datatype="date" name="won_date" ordinal="6" />
-            <column datatype="integer" name="days_to_close" ordinal="7" />
-            <column datatype="string" name="close_speed" ordinal="8" />
-            <column datatype="string" name="business_segment" ordinal="9" />
-            <column datatype="string" name="segment_top" ordinal="10" />
-            <column datatype="string" name="lead_type" ordinal="11" />
-            <column datatype="string" name="business_type" ordinal="12" />
-            <column datatype="string" name="sales_rep" ordinal="13" />
-            <column datatype="string" name="rep_top" ordinal="14" />
-          </columns>
-        </relation>
+        <relation connection="hyper.0b2bleadfunnel0olist0hyper01" name="Extract" table="[Extract].[Extract]" type="table" />
       </connection>
       <aliases enabled="yes" />
       <column caption="Lead ID" datatype="string" name="[lead_id]" role="dimension" type="nominal" />
@@ -87,6 +69,36 @@
       <column caption="Outcome" datatype="string" name="[Calculation_1010]" role="dimension" type="nominal">
         <calculation class="tableau" formula="IF [won] = 1 THEN 'Won' ELSE 'Not won' END" />
       </column>
+      <column-instance column="[Calculation_1008]" derivation="User" name="[usr:Calculation_1008:nk]" pivot="key" type="nominal" />
+      <column-instance column="[Calculation_1010]" derivation="None" name="[none:Calculation_1010:nk]" pivot="key" type="nominal" />
+      <style>
+        <style-rule element="mark">
+          <encoding attr="color" field="[usr:Calculation_1008:nk]" type="palette">
+            <map to="#ff6a3d">
+              <bucket>"Above average"</bucket>
+            </map>
+            <map to="#5b5b63">
+              <bucket>"Below average"</bucket>
+            </map>
+          </encoding>
+          <encoding attr="color" field="[none:Calculation_1010:nk]" type="palette">
+            <map to="#ff6a3d">
+              <bucket>"Won"</bucket>
+            </map>
+            <map to="#3f3f46">
+              <bucket>"Not won"</bucket>
+            </map>
+          </encoding>
+          <encoding attr="color" field="[:Measure Names]" type="palette">
+            <map to="#5b5b63">
+              <bucket>"[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1005:qk]"</bucket>
+            </map>
+            <map to="#ff6a3d">
+              <bucket>"[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1006:qk]"</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
     </datasource>
   </datasources>
   <actions>
@@ -576,16 +588,6 @@ Bubble size = deals won. Dashed line = average conversion. Click a bubble to fil
           <style-rule element="title">
             <format attr="background-color" value="#141417" />
           </style-rule>
-          <style-rule element="mark">
-            <encoding attr="color" field="[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1008:nk]" type="palette">
-              <map to="#ff6a3d">
-                <bucket>"Above average"</bucket>
-              </map>
-              <map to="#5b5b63">
-                <bucket>"Below average"</bucket>
-              </map>
-            </encoding>
-          </style-rule>
           <style-rule element="refline">
             <format attr="stroke-color" value="#71717a" />
             <format attr="stroke-size" value="1" />
@@ -733,20 +735,10 @@ Grey</run>
           <style-rule element="title">
             <format attr="background-color" value="#141417" />
           </style-rule>
-          <style-rule element="mark">
-            <encoding attr="color" field="[federated.0b2bleadfunnel0olist0dash01].[:Measure Names]" type="palette">
-              <map to="#5b5b63">
-                <bucket>"[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1005:qk]"</bucket>
-              </map>
-              <map to="#ff6a3d">
-                <bucket>"[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1006:qk]"</bucket>
-              </map>
-            </encoding>
-          </style-rule>
           <style-rule element="axis">
             <format attr="display" class="0" field="[federated.0b2bleadfunnel0olist0dash01].[Multiple Values]" scope="cols" value="false" />
           </style-rule>
-          <style-rule element="header">
+          <style-rule element="label">
             <format attr="display" field="[federated.0b2bleadfunnel0olist0dash01].[:Measure Names]" value="false" />
           </style-rule>
         </style>
@@ -856,16 +848,6 @@ Each bar is one week of new leads by first contact date. </run>
           <style-rule element="title">
             <format attr="background-color" value="#141417" />
           </style-rule>
-          <style-rule element="mark">
-            <encoding attr="color" field="[federated.0b2bleadfunnel0olist0dash01].[none:Calculation_1010:nk]" type="palette">
-              <map to="#ff6a3d">
-                <bucket>"Won"</bucket>
-              </map>
-              <map to="#3f3f46">
-                <bucket>"Not won"</bucket>
-              </map>
-            </encoding>
-          </style-rule>
         </style>
         <panes>
           <pane selection-relaxation-option="selection-relaxation-allow">
@@ -889,7 +871,6 @@ Outcome:  </run>
             </customized-tooltip>
             <style>
               <style-rule element="mark">
-                <format attr="mark-labels-show" value="true" />
                 <format attr="mark-labels-cull" value="false" />
                 <format attr="mark-labels-show" value="false" />
               </style-rule>

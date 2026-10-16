@@ -44,11 +44,14 @@ good leads, but not which ones pay for themselves.
 1. [`src/prepare_data.py`](src/prepare_data.py) joins the two files into one table, one
    row per lead, with days to close, a time-to-close bucket and fixed top-10 lists for
    landing pages, segments and sales reps.
-2. `lead-funnel.twb` reads that table. The key measures are plain counts and ratios:
+2. [`src/make_hyper.py`](src/make_hyper.py) turns the table into a Tableau extract
+   (`data/olist_leads_2018.hyper`) with Tableau's Hyper API. Tableau Public only publishes
+   workbooks built on an extract, so the workbook connects to it directly.
+3. `lead-funnel.twb` reads that extract. The key measures are plain counts and ratios:
    conversion = deals ÷ leads, and a channel's share of all leads or all deals uses an
    `EXCLUDE` level of detail calculation, so the shares stay right when a filter is
    applied.
-3. Clicking a channel in either of the two top charts filters every other chart on the
+4. Clicking a channel in either of the two top charts filters every other chart on the
    page.
 
 ## Insights
@@ -86,5 +89,6 @@ by accident.
 
 1. Download the two CSV files from Kaggle into `data/raw/`.
 2. Run `python src/prepare_data.py`. It writes `data/olist_leads_2018.csv`.
-3. Open `lead-funnel.twb` in Tableau Desktop or Tableau Public. If Tableau asks for the
-   data, point it to `data/olist_leads_2018.csv`.
+3. Run `pip install tableauhyperapi` and `python src/make_hyper.py`. It writes
+   `data/olist_leads_2018.hyper`.
+4. Open `lead-funnel.twb` in Tableau Desktop or Tableau Public.
