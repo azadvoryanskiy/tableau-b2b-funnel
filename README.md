@@ -3,6 +3,8 @@
 An interactive Tableau dashboard on 5,998 real inbound B2B leads and the 781 that became
 signed deals.
 
+**Live dashboard on Tableau Public:** https://public.tableau.com/app/profile/artem.zadvoryanskiy/viz/lead-funnel/Funnel
+
 **Skill on show: Tableau.** One large dashboard: KPI tiles, a volume-vs-quality bubble
 chart with an average line, paired bars, a weekly stacked view, top-10 lists, level of
 detail calculations, and click-to-filter actions across the whole page.
