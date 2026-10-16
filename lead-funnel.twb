@@ -1,0 +1,1857 @@
+<?xml version='1.0' encoding='utf-8'?>
+<workbook source-build="2024.3.0 (20243.24.1010.1014)" source-platform="mac" version="18.1" xmlns:user="http://www.tableausoftware.com/xml/user">
+  <document-format-change-manifest>
+    <SortTagCleanup />
+  </document-format-change-manifest>
+  <preferences />
+  <datasources>
+    <datasource caption="Olist leads 2018" inline="true" name="federated.0b2bleadfunnel0olist0dash01" version="18.1">
+      <connection class="federated">
+        <named-connections>
+          <named-connection caption="olist_leads_2018" name="textscan.0b2bleadfunnel0olist0csv001">
+            <connection class="textscan" directory="data" filename="olist_leads_2018.csv" password="" server="" />
+          </named-connection>
+        </named-connections>
+        <relation connection="textscan.0b2bleadfunnel0olist0csv001" name="olist_leads_2018.csv" table="[olist_leads_2018#csv]" type="table">
+          <columns character-set="UTF-8" header="yes" locale="en_US" separator=",">
+            <column datatype="string" name="lead_id" ordinal="0" />
+            <column datatype="date" name="first_contact_date" ordinal="1" />
+            <column datatype="string" name="channel" ordinal="2" />
+            <column datatype="string" name="landing_page" ordinal="3" />
+            <column datatype="string" name="landing_page_top" ordinal="4" />
+            <column datatype="integer" name="won" ordinal="5" />
+            <column datatype="date" name="won_date" ordinal="6" />
+            <column datatype="integer" name="days_to_close" ordinal="7" />
+            <column datatype="string" name="close_speed" ordinal="8" />
+            <column datatype="string" name="business_segment" ordinal="9" />
+            <column datatype="string" name="segment_top" ordinal="10" />
+            <column datatype="string" name="lead_type" ordinal="11" />
+            <column datatype="string" name="business_type" ordinal="12" />
+            <column datatype="string" name="sales_rep" ordinal="13" />
+            <column datatype="string" name="rep_top" ordinal="14" />
+          </columns>
+        </relation>
+      </connection>
+      <aliases enabled="yes" />
+      <column caption="Lead ID" datatype="string" name="[lead_id]" role="dimension" type="nominal" />
+      <column caption="First contact" datatype="date" name="[first_contact_date]" role="dimension" type="ordinal" />
+      <column caption="Channel" datatype="string" name="[channel]" role="dimension" type="nominal" />
+      <column caption="Landing page" datatype="string" name="[landing_page]" role="dimension" type="nominal" />
+      <column caption="Landing page (top 10)" datatype="string" name="[landing_page_top]" role="dimension" type="nominal" />
+      <column caption="Won" datatype="integer" name="[won]" role="measure" type="quantitative" />
+      <column caption="Won date" datatype="date" name="[won_date]" role="dimension" type="ordinal" />
+      <column caption="Days to close" datatype="integer" name="[days_to_close]" role="measure" type="quantitative" />
+      <column caption="Time to close" datatype="string" name="[close_speed]" role="dimension" type="nominal">
+        <aliases>
+          <alias key="&quot;1. Within a week&quot;" value="Within a week" />
+          <alias key="&quot;2. 8-14 days&quot;" value="8-14 days" />
+          <alias key="&quot;3. 15-30 days&quot;" value="15-30 days" />
+          <alias key="&quot;4. 31-60 days&quot;" value="31-60 days" />
+          <alias key="&quot;5. 61-90 days&quot;" value="61-90 days" />
+          <alias key="&quot;6. Over 90 days&quot;" value="Over 90 days" />
+        </aliases>
+      </column>
+      <column caption="Business segment" datatype="string" name="[business_segment]" role="dimension" type="nominal" />
+      <column caption="Segment (top 8)" datatype="string" name="[segment_top]" role="dimension" type="nominal" />
+      <column caption="Lead type" datatype="string" name="[lead_type]" role="dimension" type="nominal" />
+      <column caption="Business type" datatype="string" name="[business_type]" role="dimension" type="nominal" />
+      <column caption="Sales rep" datatype="string" name="[sales_rep]" role="dimension" type="nominal" />
+      <column caption="Sales rep (top 10)" datatype="string" name="[rep_top]" role="dimension" type="nominal" />
+      <column caption="Leads" datatype="integer" default-format="n#,##0" name="[Calculation_1001]" role="measure" type="quantitative">
+        <calculation class="tableau" formula="COUNT([lead_id])" />
+      </column>
+      <column caption="Deals won" datatype="integer" default-format="n#,##0" name="[Calculation_1002]" role="measure" type="quantitative">
+        <calculation class="tableau" formula="SUM([won])" />
+      </column>
+      <column caption="Conversion" datatype="real" default-format="p0.0%" name="[Calculation_1003]" role="measure" type="quantitative">
+        <calculation class="tableau" formula="SUM([won]) / COUNT([lead_id])" />
+      </column>
+      <column caption="Median days to close" datatype="real" default-format="n#,##0" name="[Calculation_1004]" role="measure" type="quantitative">
+        <calculation class="tableau" formula="MEDIAN([days_to_close])" />
+      </column>
+      <column caption="Share of leads" datatype="real" default-format="p0%" name="[Calculation_1005]" role="measure" type="quantitative">
+        <calculation class="tableau" formula="COUNT([lead_id]) / MIN({EXCLUDE [channel] : COUNT([lead_id])})" />
+      </column>
+      <column caption="Share of deals won" datatype="real" default-format="p0%" name="[Calculation_1006]" role="measure" type="quantitative">
+        <calculation class="tableau" formula="SUM([won]) / MIN({EXCLUDE [channel] : SUM([won])})" />
+      </column>
+      <column caption="Average conversion" datatype="real" default-format="p0.0%" name="[Calculation_1007]" role="measure" type="quantitative">
+        <calculation class="tableau" formula="MIN({EXCLUDE [channel] : SUM([won]) / COUNT([lead_id])})" />
+      </column>
+      <column caption="Lead quality" datatype="string" name="[Calculation_1008]" role="measure" type="nominal">
+        <calculation class="tableau" formula="IF [Calculation_1003] &gt;= [Calculation_1007] THEN 'Above average' ELSE 'Below average' END" />
+      </column>
+      <column caption="Share of won deals by speed" datatype="real" default-format="p0%" name="[Calculation_1009]" role="measure" type="quantitative">
+        <calculation class="tableau" formula="SUM([won]) / MIN({EXCLUDE [close_speed] : SUM([won])})" />
+      </column>
+      <column caption="Outcome" datatype="string" name="[Calculation_1010]" role="dimension" type="nominal">
+        <calculation class="tableau" formula="IF [won] = 1 THEN 'Won' ELSE 'Not won' END" />
+      </column>
+    </datasource>
+  </datasources>
+  <actions>
+    <action caption="Filter by channel (Channel matrix)" name="[Action1_B2BFUNNEL0001]">
+      <activation auto-clear="true" type="on-select" />
+      <source dashboard="Funnel" type="sheet" worksheet="Channel matrix" />
+      <link caption="Filter by channel" delimiter="," escape="\" expression="tsl:Funnel?%5Bfederated.0b2bleadfunnel0olist0dash01%5D.%5Bchannel%5D~s0=&lt;[channel]~na&gt;" include-null="true" multi-select="true" url-escape="true" />
+      <command command="tsc:tsl-filter">
+        <param name="exclude" value="Channel matrix,Leads vs deals" />
+        <param name="target" value="Funnel" />
+      </command>
+    </action>
+    <action caption="Filter by channel (Leads vs deals)" name="[Action2_B2BFUNNEL0002]">
+      <activation auto-clear="true" type="on-select" />
+      <source dashboard="Funnel" type="sheet" worksheet="Leads vs deals" />
+      <link caption="Filter by channel" delimiter="," escape="\" expression="tsl:Funnel?%5Bfederated.0b2bleadfunnel0olist0dash01%5D.%5Bchannel%5D~s0=&lt;[channel]~na&gt;" include-null="true" multi-select="true" url-escape="true" />
+      <command command="tsc:tsl-filter">
+        <param name="exclude" value="Channel matrix,Leads vs deals" />
+        <param name="target" value="Funnel" />
+      </command>
+    </action>
+  </actions>
+  <worksheets>
+    <worksheet name="KPI Leads">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontcolor="#71717a" fontname="Tableau Semibold" fontsize="9">LEADS</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="Olist leads 2018" name="federated.0b2bleadfunnel0olist0dash01" />
+          </datasources>
+          <datasource-dependencies datasource="federated.0b2bleadfunnel0olist0dash01">
+            <column caption="Lead ID" datatype="string" name="[lead_id]" role="dimension" type="nominal" />
+            <column caption="Leads" datatype="integer" default-format="n#,##0" name="[Calculation_1001]" role="measure" type="quantitative">
+              <calculation class="tableau" formula="COUNT([lead_id])" />
+            </column>
+            <column-instance column="[Calculation_1001]" derivation="User" name="[usr:Calculation_1001:qk]" pivot="key" type="quantitative" />
+          </datasource-dependencies>
+          <aggregation value="true" />
+        </view>
+        <style>
+          <style-rule element="worksheet">
+            <format attr="font-family" value="Tableau Book" />
+            <format attr="color" value="#d4d4d8" />
+            <format attr="display-field-labels" scope="cols" value="false" />
+            <format attr="display-field-labels" scope="rows" value="false" />
+          </style-rule>
+          <style-rule element="table">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="pane">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="header">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="label">
+            <format attr="color" value="#d4d4d8" />
+            <format attr="font-size" value="10" />
+          </style-rule>
+          <style-rule element="axis">
+            <format attr="color" value="#71717a" />
+            <format attr="font-size" value="9" />
+          </style-rule>
+          <style-rule element="gridline">
+            <format attr="stroke-color" value="#27272a" />
+            <format attr="line-visibility" value="on" />
+          </style-rule>
+          <style-rule element="zeroline">
+            <format attr="line-visibility" value="off" />
+          </style-rule>
+          <style-rule element="table-div">
+            <format attr="line-visibility" scope="rows" value="off" />
+            <format attr="line-visibility" scope="cols" value="off" />
+          </style-rule>
+          <style-rule element="header-div">
+            <format attr="line-visibility" scope="rows" value="off" />
+            <format attr="line-visibility" scope="cols" value="off" />
+          </style-rule>
+          <style-rule element="title">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="cell">
+            <format attr="text-align" value="center" />
+            <format attr="vertical-align" value="center" />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-allow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Text" />
+            <encodings>
+              <text column="[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1001:qk]" />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run fontalignment="1" fontcolor="#f5f5f4" fontname="Tableau Semibold" fontsize="30">&lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1001:qk]&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element="mark">
+                <format attr="mark-labels-show" value="true" />
+                <format attr="mark-labels-cull" value="false" />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+    </worksheet>
+    <worksheet name="KPI Deals">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontcolor="#71717a" fontname="Tableau Semibold" fontsize="9">DEALS WON</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="Olist leads 2018" name="federated.0b2bleadfunnel0olist0dash01" />
+          </datasources>
+          <datasource-dependencies datasource="federated.0b2bleadfunnel0olist0dash01">
+            <column caption="Won" datatype="integer" name="[won]" role="measure" type="quantitative" />
+            <column caption="Deals won" datatype="integer" default-format="n#,##0" name="[Calculation_1002]" role="measure" type="quantitative">
+              <calculation class="tableau" formula="SUM([won])" />
+            </column>
+            <column-instance column="[Calculation_1002]" derivation="User" name="[usr:Calculation_1002:qk]" pivot="key" type="quantitative" />
+          </datasource-dependencies>
+          <aggregation value="true" />
+        </view>
+        <style>
+          <style-rule element="worksheet">
+            <format attr="font-family" value="Tableau Book" />
+            <format attr="color" value="#d4d4d8" />
+            <format attr="display-field-labels" scope="cols" value="false" />
+            <format attr="display-field-labels" scope="rows" value="false" />
+          </style-rule>
+          <style-rule element="table">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="pane">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="header">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="label">
+            <format attr="color" value="#d4d4d8" />
+            <format attr="font-size" value="10" />
+          </style-rule>
+          <style-rule element="axis">
+            <format attr="color" value="#71717a" />
+            <format attr="font-size" value="9" />
+          </style-rule>
+          <style-rule element="gridline">
+            <format attr="stroke-color" value="#27272a" />
+            <format attr="line-visibility" value="on" />
+          </style-rule>
+          <style-rule element="zeroline">
+            <format attr="line-visibility" value="off" />
+          </style-rule>
+          <style-rule element="table-div">
+            <format attr="line-visibility" scope="rows" value="off" />
+            <format attr="line-visibility" scope="cols" value="off" />
+          </style-rule>
+          <style-rule element="header-div">
+            <format attr="line-visibility" scope="rows" value="off" />
+            <format attr="line-visibility" scope="cols" value="off" />
+          </style-rule>
+          <style-rule element="title">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="cell">
+            <format attr="text-align" value="center" />
+            <format attr="vertical-align" value="center" />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-allow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Text" />
+            <encodings>
+              <text column="[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1002:qk]" />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run fontalignment="1" fontcolor="#f5f5f4" fontname="Tableau Semibold" fontsize="30">&lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1002:qk]&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element="mark">
+                <format attr="mark-labels-show" value="true" />
+                <format attr="mark-labels-cull" value="false" />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+    </worksheet>
+    <worksheet name="KPI Conversion">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontcolor="#71717a" fontname="Tableau Semibold" fontsize="9">LEAD-TO-DEAL CONVERSION</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="Olist leads 2018" name="federated.0b2bleadfunnel0olist0dash01" />
+          </datasources>
+          <datasource-dependencies datasource="federated.0b2bleadfunnel0olist0dash01">
+            <column caption="Lead ID" datatype="string" name="[lead_id]" role="dimension" type="nominal" />
+            <column caption="Won" datatype="integer" name="[won]" role="measure" type="quantitative" />
+            <column caption="Conversion" datatype="real" default-format="p0.0%" name="[Calculation_1003]" role="measure" type="quantitative">
+              <calculation class="tableau" formula="SUM([won]) / COUNT([lead_id])" />
+            </column>
+            <column-instance column="[Calculation_1003]" derivation="User" name="[usr:Calculation_1003:qk]" pivot="key" type="quantitative" />
+          </datasource-dependencies>
+          <aggregation value="true" />
+        </view>
+        <style>
+          <style-rule element="worksheet">
+            <format attr="font-family" value="Tableau Book" />
+            <format attr="color" value="#d4d4d8" />
+            <format attr="display-field-labels" scope="cols" value="false" />
+            <format attr="display-field-labels" scope="rows" value="false" />
+          </style-rule>
+          <style-rule element="table">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="pane">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="header">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="label">
+            <format attr="color" value="#d4d4d8" />
+            <format attr="font-size" value="10" />
+          </style-rule>
+          <style-rule element="axis">
+            <format attr="color" value="#71717a" />
+            <format attr="font-size" value="9" />
+          </style-rule>
+          <style-rule element="gridline">
+            <format attr="stroke-color" value="#27272a" />
+            <format attr="line-visibility" value="on" />
+          </style-rule>
+          <style-rule element="zeroline">
+            <format attr="line-visibility" value="off" />
+          </style-rule>
+          <style-rule element="table-div">
+            <format attr="line-visibility" scope="rows" value="off" />
+            <format attr="line-visibility" scope="cols" value="off" />
+          </style-rule>
+          <style-rule element="header-div">
+            <format attr="line-visibility" scope="rows" value="off" />
+            <format attr="line-visibility" scope="cols" value="off" />
+          </style-rule>
+          <style-rule element="title">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="cell">
+            <format attr="text-align" value="center" />
+            <format attr="vertical-align" value="center" />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-allow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Text" />
+            <encodings>
+              <text column="[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1003:qk]" />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run fontalignment="1" fontcolor="#f5f5f4" fontname="Tableau Semibold" fontsize="30">&lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1003:qk]&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element="mark">
+                <format attr="mark-labels-show" value="true" />
+                <format attr="mark-labels-cull" value="false" />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+    </worksheet>
+    <worksheet name="KPI Days">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontcolor="#71717a" fontname="Tableau Semibold" fontsize="9">MEDIAN DAYS TO CLOSE</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="Olist leads 2018" name="federated.0b2bleadfunnel0olist0dash01" />
+          </datasources>
+          <datasource-dependencies datasource="federated.0b2bleadfunnel0olist0dash01">
+            <column caption="Days to close" datatype="integer" name="[days_to_close]" role="measure" type="quantitative" />
+            <column caption="Median days to close" datatype="real" default-format="n#,##0" name="[Calculation_1004]" role="measure" type="quantitative">
+              <calculation class="tableau" formula="MEDIAN([days_to_close])" />
+            </column>
+            <column-instance column="[Calculation_1004]" derivation="User" name="[usr:Calculation_1004:qk]" pivot="key" type="quantitative" />
+          </datasource-dependencies>
+          <aggregation value="true" />
+        </view>
+        <style>
+          <style-rule element="worksheet">
+            <format attr="font-family" value="Tableau Book" />
+            <format attr="color" value="#d4d4d8" />
+            <format attr="display-field-labels" scope="cols" value="false" />
+            <format attr="display-field-labels" scope="rows" value="false" />
+          </style-rule>
+          <style-rule element="table">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="pane">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="header">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="label">
+            <format attr="color" value="#d4d4d8" />
+            <format attr="font-size" value="10" />
+          </style-rule>
+          <style-rule element="axis">
+            <format attr="color" value="#71717a" />
+            <format attr="font-size" value="9" />
+          </style-rule>
+          <style-rule element="gridline">
+            <format attr="stroke-color" value="#27272a" />
+            <format attr="line-visibility" value="on" />
+          </style-rule>
+          <style-rule element="zeroline">
+            <format attr="line-visibility" value="off" />
+          </style-rule>
+          <style-rule element="table-div">
+            <format attr="line-visibility" scope="rows" value="off" />
+            <format attr="line-visibility" scope="cols" value="off" />
+          </style-rule>
+          <style-rule element="header-div">
+            <format attr="line-visibility" scope="rows" value="off" />
+            <format attr="line-visibility" scope="cols" value="off" />
+          </style-rule>
+          <style-rule element="title">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="cell">
+            <format attr="text-align" value="center" />
+            <format attr="vertical-align" value="center" />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-allow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Text" />
+            <encodings>
+              <text column="[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1004:qk]" />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run fontalignment="1" fontcolor="#f5f5f4" fontname="Tableau Semibold" fontsize="30">&lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1004:qk]&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element="mark">
+                <format attr="mark-labels-show" value="true" />
+                <format attr="mark-labels-cull" value="false" />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+    </worksheet>
+    <worksheet name="Channel matrix">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontcolor="#f5f5f4" fontname="Tableau Semibold" fontsize="12">Volume vs. quality by channel</run>
+            <run fontcolor="#71717a" fontname="Tableau Book" fontsize="9">
+Bubble size = deals won. Dashed line = average conversion. Click a bubble to filter the page.</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="Olist leads 2018" name="federated.0b2bleadfunnel0olist0dash01" />
+          </datasources>
+          <datasource-dependencies datasource="federated.0b2bleadfunnel0olist0dash01">
+            <column caption="Channel" datatype="string" name="[channel]" role="dimension" type="nominal" />
+            <column caption="Lead ID" datatype="string" name="[lead_id]" role="dimension" type="nominal" />
+            <column caption="Won" datatype="integer" name="[won]" role="measure" type="quantitative" />
+            <column caption="Average conversion" datatype="real" default-format="p0.0%" name="[Calculation_1007]" role="measure" type="quantitative">
+              <calculation class="tableau" formula="MIN({EXCLUDE [channel] : SUM([won]) / COUNT([lead_id])})" />
+            </column>
+            <column caption="Lead quality" datatype="string" name="[Calculation_1008]" role="measure" type="nominal">
+              <calculation class="tableau" formula="IF [Calculation_1003] &gt;= [Calculation_1007] THEN 'Above average' ELSE 'Below average' END" />
+            </column>
+            <column caption="Conversion" datatype="real" default-format="p0.0%" name="[Calculation_1003]" role="measure" type="quantitative">
+              <calculation class="tableau" formula="SUM([won]) / COUNT([lead_id])" />
+            </column>
+            <column caption="Deals won" datatype="integer" default-format="n#,##0" name="[Calculation_1002]" role="measure" type="quantitative">
+              <calculation class="tableau" formula="SUM([won])" />
+            </column>
+            <column caption="Leads" datatype="integer" default-format="n#,##0" name="[Calculation_1001]" role="measure" type="quantitative">
+              <calculation class="tableau" formula="COUNT([lead_id])" />
+            </column>
+            <column-instance column="[channel]" derivation="None" name="[none:channel:nk]" pivot="key" type="nominal" />
+            <column-instance column="[Calculation_1001]" derivation="User" name="[usr:Calculation_1001:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[Calculation_1003]" derivation="User" name="[usr:Calculation_1003:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[Calculation_1002]" derivation="User" name="[usr:Calculation_1002:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[Calculation_1008]" derivation="User" name="[usr:Calculation_1008:nk]" pivot="key" type="nominal" />
+            <column-instance column="[Calculation_1007]" derivation="User" name="[usr:Calculation_1007:qk]" pivot="key" type="quantitative" />
+          </datasource-dependencies>
+          <aggregation value="true" />
+        </view>
+        <style>
+          <style-rule element="worksheet">
+            <format attr="font-family" value="Tableau Book" />
+            <format attr="color" value="#d4d4d8" />
+            <format attr="display-field-labels" scope="cols" value="false" />
+            <format attr="display-field-labels" scope="rows" value="false" />
+          </style-rule>
+          <style-rule element="table">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="pane">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="header">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="label">
+            <format attr="color" value="#d4d4d8" />
+            <format attr="font-size" value="10" />
+          </style-rule>
+          <style-rule element="axis">
+            <format attr="color" value="#71717a" />
+            <format attr="font-size" value="9" />
+          </style-rule>
+          <style-rule element="gridline">
+            <format attr="stroke-color" value="#27272a" />
+            <format attr="line-visibility" value="on" />
+          </style-rule>
+          <style-rule element="zeroline">
+            <format attr="line-visibility" value="off" />
+          </style-rule>
+          <style-rule element="table-div">
+            <format attr="line-visibility" scope="rows" value="off" />
+            <format attr="line-visibility" scope="cols" value="off" />
+          </style-rule>
+          <style-rule element="header-div">
+            <format attr="line-visibility" scope="rows" value="off" />
+            <format attr="line-visibility" scope="cols" value="off" />
+          </style-rule>
+          <style-rule element="title">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="mark">
+            <encoding attr="color" field="[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1008:nk]" type="palette">
+              <map to="#ff6a3d">
+                <bucket>"Above average"</bucket>
+              </map>
+              <map to="#5b5b63">
+                <bucket>"Below average"</bucket>
+              </map>
+            </encoding>
+          </style-rule>
+          <style-rule element="refline">
+            <format attr="stroke-color" value="#71717a" />
+            <format attr="stroke-size" value="1" />
+            <format attr="line-pattern-only" value="dashed" />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-allow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Circle" />
+            <encodings>
+              <color column="[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1008:nk]" />
+              <size column="[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1002:qk]" />
+              <text column="[federated.0b2bleadfunnel0olist0dash01].[none:channel:nk]" />
+              <lod column="[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1007:qk]" />
+            </encodings>
+            <reference-line axis-column="[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1003:qk]" enable-instant-analytics="false" formula="average" id="refline0" label="Average &lt;Value&gt;" label-type="custom" scope="per-table" value-column="[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1007:qk]" z-order="1" />
+            <customized-tooltip>
+              <formatted-text>
+                <run fontcolor="#111111" fontname="Tableau Bold" fontsize="11">&lt;[federated.0b2bleadfunnel0olist0dash01].[none:channel:nk]&gt;</run>
+                <run fontcolor="#555555" fontname="Tableau Book" fontsize="9">
+Leads:  </run>
+                <run fontcolor="#111111" fontname="Tableau Semibold" fontsize="9">&lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1001:qk]&gt;</run>
+                <run fontcolor="#555555" fontname="Tableau Book" fontsize="9">
+Deals won:  </run>
+                <run fontcolor="#111111" fontname="Tableau Semibold" fontsize="9">&lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1002:qk]&gt;</run>
+                <run fontcolor="#555555" fontname="Tableau Book" fontsize="9">
+Conversion:  </run>
+                <run fontcolor="#111111" fontname="Tableau Semibold" fontsize="9">&lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1003:qk]&gt;</run>
+              </formatted-text>
+            </customized-tooltip>
+            <customized-label>
+              <formatted-text>
+                <run fontcolor="#d4d4d8" fontname="Tableau Book" fontsize="9">&lt;[federated.0b2bleadfunnel0olist0dash01].[none:channel:nk]&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element="mark">
+                <format attr="mark-labels-show" value="true" />
+                <format attr="mark-labels-cull" value="false" />
+                <format attr="mark-transparency" value="220" />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1003:qk]</rows>
+        <cols>[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1001:qk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name="Leads vs deals">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontcolor="#f5f5f4" fontname="Tableau Semibold" fontsize="12">Share of leads vs. share of deals won</run>
+            <run fontcolor="#8b8b93" fontname="Tableau Semibold" fontsize="9">
+Grey</run>
+            <run fontcolor="#71717a" fontname="Tableau Book" fontsize="9"> = share of all leads.  </run>
+            <run fontcolor="#ff6a3d" fontname="Tableau Semibold" fontsize="9">Orange</run>
+            <run fontcolor="#71717a" fontname="Tableau Book" fontsize="9"> = share of all deals won. Social and email bring far more leads than deals.</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="Olist leads 2018" name="federated.0b2bleadfunnel0olist0dash01" />
+          </datasources>
+          <datasource-dependencies datasource="federated.0b2bleadfunnel0olist0dash01">
+            <column caption="Channel" datatype="string" name="[channel]" role="dimension" type="nominal" />
+            <column caption="Lead ID" datatype="string" name="[lead_id]" role="dimension" type="nominal" />
+            <column caption="Won" datatype="integer" name="[won]" role="measure" type="quantitative" />
+            <column caption="Leads" datatype="integer" default-format="n#,##0" name="[Calculation_1001]" role="measure" type="quantitative">
+              <calculation class="tableau" formula="COUNT([lead_id])" />
+            </column>
+            <column caption="Share of deals won" datatype="real" default-format="p0%" name="[Calculation_1006]" role="measure" type="quantitative">
+              <calculation class="tableau" formula="SUM([won]) / MIN({EXCLUDE [channel] : SUM([won])})" />
+            </column>
+            <column caption="Share of leads" datatype="real" default-format="p0%" name="[Calculation_1005]" role="measure" type="quantitative">
+              <calculation class="tableau" formula="COUNT([lead_id]) / MIN({EXCLUDE [channel] : COUNT([lead_id])})" />
+            </column>
+            <column-instance column="[channel]" derivation="None" name="[none:channel:nk]" pivot="key" type="nominal" />
+            <column-instance column="[Calculation_1005]" derivation="User" name="[usr:Calculation_1005:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[Calculation_1006]" derivation="User" name="[usr:Calculation_1006:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[Calculation_1001]" derivation="User" name="[usr:Calculation_1001:qk]" pivot="key" type="quantitative" />
+          </datasource-dependencies>
+          <filter class="categorical" column="[federated.0b2bleadfunnel0olist0dash01].[:Measure Names]">
+            <groupfilter function="union" user:op="manual">
+              <groupfilter function="member" level="[:Measure Names]" member="&quot;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1005:qk]&quot;" />
+              <groupfilter function="member" level="[:Measure Names]" member="&quot;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1006:qk]&quot;" />
+            </groupfilter>
+          </filter>
+          <manual-sort column="[federated.0b2bleadfunnel0olist0dash01].[:Measure Names]" direction="ASC">
+            <dictionary>
+              <bucket>"[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1005:qk]"</bucket>
+              <bucket>"[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1006:qk]"</bucket>
+            </dictionary>
+          </manual-sort>
+          <computed-sort column="[federated.0b2bleadfunnel0olist0dash01].[none:channel:nk]" direction="DESC" using="[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1001:qk]" />
+          <slices>
+            <column>[federated.0b2bleadfunnel0olist0dash01].[:Measure Names]</column>
+          </slices>
+          <aggregation value="true" />
+        </view>
+        <style>
+          <style-rule element="worksheet">
+            <format attr="font-family" value="Tableau Book" />
+            <format attr="color" value="#d4d4d8" />
+            <format attr="display-field-labels" scope="cols" value="false" />
+            <format attr="display-field-labels" scope="rows" value="false" />
+          </style-rule>
+          <style-rule element="table">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="pane">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="header">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="label">
+            <format attr="color" value="#d4d4d8" />
+            <format attr="font-size" value="10" />
+          </style-rule>
+          <style-rule element="axis">
+            <format attr="color" value="#71717a" />
+            <format attr="font-size" value="9" />
+          </style-rule>
+          <style-rule element="gridline">
+            <format attr="stroke-color" value="#27272a" />
+            <format attr="line-visibility" value="on" />
+          </style-rule>
+          <style-rule element="zeroline">
+            <format attr="line-visibility" value="off" />
+          </style-rule>
+          <style-rule element="table-div">
+            <format attr="line-visibility" scope="rows" value="off" />
+            <format attr="line-visibility" scope="cols" value="off" />
+          </style-rule>
+          <style-rule element="header-div">
+            <format attr="line-visibility" scope="rows" value="off" />
+            <format attr="line-visibility" scope="cols" value="off" />
+          </style-rule>
+          <style-rule element="title">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="mark">
+            <encoding attr="color" field="[federated.0b2bleadfunnel0olist0dash01].[:Measure Names]" type="palette">
+              <map to="#5b5b63">
+                <bucket>"[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1005:qk]"</bucket>
+              </map>
+              <map to="#ff6a3d">
+                <bucket>"[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1006:qk]"</bucket>
+              </map>
+            </encoding>
+          </style-rule>
+          <style-rule element="axis">
+            <format attr="display" class="0" field="[federated.0b2bleadfunnel0olist0dash01].[Multiple Values]" scope="cols" value="false" />
+          </style-rule>
+          <style-rule element="header">
+            <format attr="display" field="[federated.0b2bleadfunnel0olist0dash01].[:Measure Names]" value="false" />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-allow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Bar" />
+            <encodings>
+              <color column="[federated.0b2bleadfunnel0olist0dash01].[:Measure Names]" />
+              <text column="[federated.0b2bleadfunnel0olist0dash01].[Multiple Values]" />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run fontcolor="#d4d4d8" fontname="Tableau Book" fontsize="8">&lt;[federated.0b2bleadfunnel0olist0dash01].[Multiple Values]&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element="mark">
+                <format attr="mark-labels-show" value="true" />
+                <format attr="mark-labels-cull" value="false" />
+                <format attr="size" value="0.6" />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.0b2bleadfunnel0olist0dash01].[none:channel:nk] / [federated.0b2bleadfunnel0olist0dash01].[:Measure Names])</rows>
+        <cols>[federated.0b2bleadfunnel0olist0dash01].[Multiple Values]</cols>
+      </table>
+    </worksheet>
+    <worksheet name="Leads per week">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontcolor="#f5f5f4" fontname="Tableau Semibold" fontsize="12">Leads per week</run>
+            <run fontcolor="#71717a" fontname="Tableau Book" fontsize="9">
+Each bar is one week of new leads by first contact date. </run>
+            <run fontcolor="#ff6a3d" fontname="Tableau Semibold" fontsize="9">Orange</run>
+            <run fontcolor="#71717a" fontname="Tableau Book" fontsize="9"> = later won.</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="Olist leads 2018" name="federated.0b2bleadfunnel0olist0dash01" />
+          </datasources>
+          <datasource-dependencies datasource="federated.0b2bleadfunnel0olist0dash01">
+            <column caption="Lead ID" datatype="string" name="[lead_id]" role="dimension" type="nominal" />
+            <column caption="Won" datatype="integer" name="[won]" role="measure" type="quantitative" />
+            <column caption="First contact" datatype="date" name="[first_contact_date]" role="dimension" type="ordinal" />
+            <column caption="Conversion" datatype="real" default-format="p0.0%" name="[Calculation_1003]" role="measure" type="quantitative">
+              <calculation class="tableau" formula="SUM([won]) / COUNT([lead_id])" />
+            </column>
+            <column caption="Outcome" datatype="string" name="[Calculation_1010]" role="dimension" type="nominal">
+              <calculation class="tableau" formula="IF [won] = 1 THEN 'Won' ELSE 'Not won' END" />
+            </column>
+            <column caption="Leads" datatype="integer" default-format="n#,##0" name="[Calculation_1001]" role="measure" type="quantitative">
+              <calculation class="tableau" formula="COUNT([lead_id])" />
+            </column>
+            <column-instance column="[first_contact_date]" derivation="Week-Trunc" name="[twk:first_contact_date:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[Calculation_1001]" derivation="User" name="[usr:Calculation_1001:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[Calculation_1010]" derivation="None" name="[none:Calculation_1010:nk]" pivot="key" type="nominal" />
+          </datasource-dependencies>
+          <aggregation value="true" />
+        </view>
+        <style>
+          <style-rule element="worksheet">
+            <format attr="font-family" value="Tableau Book" />
+            <format attr="color" value="#d4d4d8" />
+            <format attr="display-field-labels" scope="cols" value="false" />
+            <format attr="display-field-labels" scope="rows" value="false" />
+          </style-rule>
+          <style-rule element="table">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="pane">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="header">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="label">
+            <format attr="color" value="#d4d4d8" />
+            <format attr="font-size" value="10" />
+          </style-rule>
+          <style-rule element="axis">
+            <format attr="color" value="#71717a" />
+            <format attr="font-size" value="9" />
+          </style-rule>
+          <style-rule element="gridline">
+            <format attr="stroke-color" value="#27272a" />
+            <format attr="line-visibility" value="on" />
+          </style-rule>
+          <style-rule element="zeroline">
+            <format attr="line-visibility" value="off" />
+          </style-rule>
+          <style-rule element="table-div">
+            <format attr="line-visibility" scope="rows" value="off" />
+            <format attr="line-visibility" scope="cols" value="off" />
+          </style-rule>
+          <style-rule element="header-div">
+            <format attr="line-visibility" scope="rows" value="off" />
+            <format attr="line-visibility" scope="cols" value="off" />
+          </style-rule>
+          <style-rule element="title">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="mark">
+            <encoding attr="color" field="[federated.0b2bleadfunnel0olist0dash01].[none:Calculation_1010:nk]" type="palette">
+              <map to="#ff6a3d">
+                <bucket>"Won"</bucket>
+              </map>
+              <map to="#3f3f46">
+                <bucket>"Not won"</bucket>
+              </map>
+            </encoding>
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-allow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Bar" />
+            <encodings>
+              <color column="[federated.0b2bleadfunnel0olist0dash01].[none:Calculation_1010:nk]" />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontcolor="#111111" fontname="Tableau Bold" fontsize="11">Week of &lt;[federated.0b2bleadfunnel0olist0dash01].[twk:first_contact_date:qk]&gt;</run>
+                <run fontcolor="#555555" fontname="Tableau Book" fontsize="9">
+Leads:  </run>
+                <run fontcolor="#111111" fontname="Tableau Semibold" fontsize="9">&lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1001:qk]&gt;</run>
+                <run fontcolor="#555555" fontname="Tableau Book" fontsize="9">
+Outcome:  </run>
+                <run fontcolor="#111111" fontname="Tableau Semibold" fontsize="9">&lt;[federated.0b2bleadfunnel0olist0dash01].[none:Calculation_1010:nk]&gt;</run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element="mark">
+                <format attr="mark-labels-show" value="true" />
+                <format attr="mark-labels-cull" value="false" />
+                <format attr="mark-labels-show" value="false" />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1001:qk]</rows>
+        <cols>[federated.0b2bleadfunnel0olist0dash01].[twk:first_contact_date:qk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name="Close speed">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontcolor="#f5f5f4" fontname="Tableau Semibold" fontsize="12">How fast deals close</run>
+            <run fontcolor="#71717a" fontname="Tableau Book" fontsize="9">
+Days from first contact to deal won. 71% of deals close within 30 days.</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="Olist leads 2018" name="federated.0b2bleadfunnel0olist0dash01" />
+          </datasources>
+          <datasource-dependencies datasource="federated.0b2bleadfunnel0olist0dash01">
+            <column caption="Time to close" datatype="string" name="[close_speed]" role="dimension" type="nominal">
+              <aliases>
+                <alias key="&quot;1. Within a week&quot;" value="Within a week" />
+                <alias key="&quot;2. 8-14 days&quot;" value="8-14 days" />
+                <alias key="&quot;3. 15-30 days&quot;" value="15-30 days" />
+                <alias key="&quot;4. 31-60 days&quot;" value="31-60 days" />
+                <alias key="&quot;5. 61-90 days&quot;" value="61-90 days" />
+                <alias key="&quot;6. Over 90 days&quot;" value="Over 90 days" />
+              </aliases>
+            </column>
+            <column caption="Won" datatype="integer" name="[won]" role="measure" type="quantitative" />
+            <column caption="Share of won deals by speed" datatype="real" default-format="p0%" name="[Calculation_1009]" role="measure" type="quantitative">
+              <calculation class="tableau" formula="SUM([won]) / MIN({EXCLUDE [close_speed] : SUM([won])})" />
+            </column>
+            <column caption="Deals won" datatype="integer" default-format="n#,##0" name="[Calculation_1002]" role="measure" type="quantitative">
+              <calculation class="tableau" formula="SUM([won])" />
+            </column>
+            <column-instance column="[close_speed]" derivation="None" name="[none:close_speed:nk]" pivot="key" type="nominal" />
+            <column-instance column="[Calculation_1002]" derivation="User" name="[usr:Calculation_1002:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[Calculation_1009]" derivation="User" name="[usr:Calculation_1009:qk]" pivot="key" type="quantitative" />
+          </datasource-dependencies>
+          <filter class="categorical" column="[federated.0b2bleadfunnel0olist0dash01].[none:close_speed:nk]">
+            <groupfilter function="except" user:ui-domain="database" user:ui-enumeration="exclusive" user:ui-marker="enumerate">
+              <groupfilter function="level-members" level="[none:close_speed:nk]" />
+              <groupfilter function="member" level="[none:close_speed:nk]" member="%null%" />
+            </groupfilter>
+          </filter>
+          <aggregation value="true" />
+        </view>
+        <style>
+          <style-rule element="worksheet">
+            <format attr="font-family" value="Tableau Book" />
+            <format attr="color" value="#d4d4d8" />
+            <format attr="display-field-labels" scope="cols" value="false" />
+            <format attr="display-field-labels" scope="rows" value="false" />
+          </style-rule>
+          <style-rule element="table">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="pane">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="header">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="label">
+            <format attr="color" value="#d4d4d8" />
+            <format attr="font-size" value="10" />
+          </style-rule>
+          <style-rule element="axis">
+            <format attr="color" value="#71717a" />
+            <format attr="font-size" value="9" />
+          </style-rule>
+          <style-rule element="gridline">
+            <format attr="stroke-color" value="#27272a" />
+            <format attr="line-visibility" value="on" />
+          </style-rule>
+          <style-rule element="zeroline">
+            <format attr="line-visibility" value="off" />
+          </style-rule>
+          <style-rule element="table-div">
+            <format attr="line-visibility" scope="rows" value="off" />
+            <format attr="line-visibility" scope="cols" value="off" />
+          </style-rule>
+          <style-rule element="header-div">
+            <format attr="line-visibility" scope="rows" value="off" />
+            <format attr="line-visibility" scope="cols" value="off" />
+          </style-rule>
+          <style-rule element="title">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="axis">
+            <format attr="display" class="0" field="[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1002:qk]" scope="rows" value="false" />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-allow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Bar" />
+            <encodings>
+              <text column="[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1009:qk]" />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontcolor="#111111" fontname="Tableau Bold" fontsize="11">&lt;[federated.0b2bleadfunnel0olist0dash01].[none:close_speed:nk]&gt;</run>
+                <run fontcolor="#555555" fontname="Tableau Book" fontsize="9">
+Deals won:  </run>
+                <run fontcolor="#111111" fontname="Tableau Semibold" fontsize="9">&lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1002:qk]&gt;</run>
+                <run fontcolor="#555555" fontname="Tableau Book" fontsize="9">
+Share of deals:  </run>
+                <run fontcolor="#111111" fontname="Tableau Semibold" fontsize="9">&lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1009:qk]&gt;</run>
+              </formatted-text>
+            </customized-tooltip>
+            <customized-label>
+              <formatted-text>
+                <run fontcolor="#d4d4d8" fontname="Tableau Semibold" fontsize="9">&lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1009:qk]&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element="mark">
+                <format attr="mark-labels-show" value="true" />
+                <format attr="mark-labels-cull" value="false" />
+                <format attr="mark-color" value="#ff6a3d" />
+                <format attr="size" value="0.7" />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1002:qk]</rows>
+        <cols>[federated.0b2bleadfunnel0olist0dash01].[none:close_speed:nk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name="Landing pages">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontcolor="#f5f5f4" fontname="Tableau Semibold" fontsize="12">Top 10 landing pages</run>
+            <run fontcolor="#71717a" fontname="Tableau Book" fontsize="9">
+Bar = leads. Label and colour = conversion: from 23% on the best page to under 4% on the weakest.</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="Olist leads 2018" name="federated.0b2bleadfunnel0olist0dash01" />
+          </datasources>
+          <datasource-dependencies datasource="federated.0b2bleadfunnel0olist0dash01">
+            <column caption="Lead ID" datatype="string" name="[lead_id]" role="dimension" type="nominal" />
+            <column caption="Won" datatype="integer" name="[won]" role="measure" type="quantitative" />
+            <column caption="Landing page (top 10)" datatype="string" name="[landing_page_top]" role="dimension" type="nominal" />
+            <column caption="Conversion" datatype="real" default-format="p0.0%" name="[Calculation_1003]" role="measure" type="quantitative">
+              <calculation class="tableau" formula="SUM([won]) / COUNT([lead_id])" />
+            </column>
+            <column caption="Leads" datatype="integer" default-format="n#,##0" name="[Calculation_1001]" role="measure" type="quantitative">
+              <calculation class="tableau" formula="COUNT([lead_id])" />
+            </column>
+            <column-instance column="[landing_page_top]" derivation="None" name="[none:landing_page_top:nk]" pivot="key" type="nominal" />
+            <column-instance column="[Calculation_1001]" derivation="User" name="[usr:Calculation_1001:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[Calculation_1001]" derivation="User" name="[usr:Calculation_1001:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[Calculation_1003]" derivation="User" name="[usr:Calculation_1003:qk]" pivot="key" type="quantitative" />
+          </datasource-dependencies>
+          <filter class="categorical" column="[federated.0b2bleadfunnel0olist0dash01].[none:landing_page_top:nk]">
+            <groupfilter function="except" user:ui-domain="database" user:ui-enumeration="exclusive" user:ui-marker="enumerate">
+              <groupfilter function="level-members" level="[none:landing_page_top:nk]" />
+              <groupfilter function="union">
+                <groupfilter function="member" level="[none:landing_page_top:nk]" member="%null%" />
+                <groupfilter function="member" level="[none:landing_page_top:nk]" member="&quot;Other pages&quot;" />
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <computed-sort column="[federated.0b2bleadfunnel0olist0dash01].[none:landing_page_top:nk]" direction="DESC" using="[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1001:qk]" />
+          <aggregation value="true" />
+        </view>
+        <style>
+          <style-rule element="worksheet">
+            <format attr="font-family" value="Tableau Book" />
+            <format attr="color" value="#d4d4d8" />
+            <format attr="display-field-labels" scope="cols" value="false" />
+            <format attr="display-field-labels" scope="rows" value="false" />
+          </style-rule>
+          <style-rule element="table">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="pane">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="header">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="label">
+            <format attr="color" value="#d4d4d8" />
+            <format attr="font-size" value="10" />
+          </style-rule>
+          <style-rule element="axis">
+            <format attr="color" value="#71717a" />
+            <format attr="font-size" value="9" />
+          </style-rule>
+          <style-rule element="gridline">
+            <format attr="stroke-color" value="#27272a" />
+            <format attr="line-visibility" value="on" />
+          </style-rule>
+          <style-rule element="zeroline">
+            <format attr="line-visibility" value="off" />
+          </style-rule>
+          <style-rule element="table-div">
+            <format attr="line-visibility" scope="rows" value="off" />
+            <format attr="line-visibility" scope="cols" value="off" />
+          </style-rule>
+          <style-rule element="header-div">
+            <format attr="line-visibility" scope="rows" value="off" />
+            <format attr="line-visibility" scope="cols" value="off" />
+          </style-rule>
+          <style-rule element="title">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="axis">
+            <format attr="display" class="0" field="[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1001:qk]" scope="cols" value="false" />
+          </style-rule>
+          <style-rule element="mark">
+            <encoding attr="color" field="[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1003:qk]" type="custom-interpolated">
+              <color-palette custom="true" name="" type="ordered-sequential">
+                <color>#4a2a20</color>
+                <color>#ff6a3d</color>
+              </color-palette>
+            </encoding>
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-allow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Bar" />
+            <encodings>
+              <text column="[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1001:qk]" />
+              <text column="[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1003:qk]" />
+              <color column="[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1003:qk]" />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontcolor="#111111" fontname="Tableau Bold" fontsize="11">&lt;[federated.0b2bleadfunnel0olist0dash01].[none:landing_page_top:nk]&gt;</run>
+                <run fontcolor="#555555" fontname="Tableau Book" fontsize="9">
+Leads:  </run>
+                <run fontcolor="#111111" fontname="Tableau Semibold" fontsize="9">&lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1001:qk]&gt;</run>
+                <run fontcolor="#555555" fontname="Tableau Book" fontsize="9">
+Conversion:  </run>
+                <run fontcolor="#111111" fontname="Tableau Semibold" fontsize="9">&lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1003:qk]&gt;</run>
+              </formatted-text>
+            </customized-tooltip>
+            <customized-label>
+              <formatted-text>
+                <run fontcolor="#d4d4d8" fontname="Tableau Semibold" fontsize="9">&lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1001:qk]&gt;</run>
+                <run fontcolor="#71717a" fontname="Tableau Book" fontsize="9">  &lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1003:qk]&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element="mark">
+                <format attr="mark-labels-show" value="true" />
+                <format attr="mark-labels-cull" value="false" />
+                <format attr="size" value="0.65" />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0b2bleadfunnel0olist0dash01].[none:landing_page_top:nk]</rows>
+        <cols>[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1001:qk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name="Segments">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontcolor="#f5f5f4" fontname="Tableau Semibold" fontsize="12">Won deals by business segment</run>
+            <run fontcolor="#71717a" fontname="Tableau Book" fontsize="9">
+Top 8 segments. Home decor and health &amp; beauty lead.</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="Olist leads 2018" name="federated.0b2bleadfunnel0olist0dash01" />
+          </datasources>
+          <datasource-dependencies datasource="federated.0b2bleadfunnel0olist0dash01">
+            <column caption="Won" datatype="integer" name="[won]" role="measure" type="quantitative" />
+            <column caption="Segment (top 8)" datatype="string" name="[segment_top]" role="dimension" type="nominal" />
+            <column caption="Deals won" datatype="integer" default-format="n#,##0" name="[Calculation_1002]" role="measure" type="quantitative">
+              <calculation class="tableau" formula="SUM([won])" />
+            </column>
+            <column-instance column="[segment_top]" derivation="None" name="[none:segment_top:nk]" pivot="key" type="nominal" />
+            <column-instance column="[Calculation_1002]" derivation="User" name="[usr:Calculation_1002:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[Calculation_1002]" derivation="User" name="[usr:Calculation_1002:qk]" pivot="key" type="quantitative" />
+          </datasource-dependencies>
+          <filter class="categorical" column="[federated.0b2bleadfunnel0olist0dash01].[none:segment_top:nk]">
+            <groupfilter function="except" user:ui-domain="database" user:ui-enumeration="exclusive" user:ui-marker="enumerate">
+              <groupfilter function="level-members" level="[none:segment_top:nk]" />
+              <groupfilter function="union">
+                <groupfilter function="member" level="[none:segment_top:nk]" member="%null%" />
+                <groupfilter function="member" level="[none:segment_top:nk]" member="&quot;Other segments&quot;" />
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <computed-sort column="[federated.0b2bleadfunnel0olist0dash01].[none:segment_top:nk]" direction="DESC" using="[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1002:qk]" />
+          <aggregation value="true" />
+        </view>
+        <style>
+          <style-rule element="worksheet">
+            <format attr="font-family" value="Tableau Book" />
+            <format attr="color" value="#d4d4d8" />
+            <format attr="display-field-labels" scope="cols" value="false" />
+            <format attr="display-field-labels" scope="rows" value="false" />
+          </style-rule>
+          <style-rule element="table">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="pane">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="header">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="label">
+            <format attr="color" value="#d4d4d8" />
+            <format attr="font-size" value="10" />
+          </style-rule>
+          <style-rule element="axis">
+            <format attr="color" value="#71717a" />
+            <format attr="font-size" value="9" />
+          </style-rule>
+          <style-rule element="gridline">
+            <format attr="stroke-color" value="#27272a" />
+            <format attr="line-visibility" value="on" />
+          </style-rule>
+          <style-rule element="zeroline">
+            <format attr="line-visibility" value="off" />
+          </style-rule>
+          <style-rule element="table-div">
+            <format attr="line-visibility" scope="rows" value="off" />
+            <format attr="line-visibility" scope="cols" value="off" />
+          </style-rule>
+          <style-rule element="header-div">
+            <format attr="line-visibility" scope="rows" value="off" />
+            <format attr="line-visibility" scope="cols" value="off" />
+          </style-rule>
+          <style-rule element="title">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="axis">
+            <format attr="display" class="0" field="[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1002:qk]" scope="cols" value="false" />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-allow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Bar" />
+            <encodings>
+              <text column="[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1002:qk]" />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontcolor="#111111" fontname="Tableau Bold" fontsize="11">&lt;[federated.0b2bleadfunnel0olist0dash01].[none:segment_top:nk]&gt;</run>
+                <run fontcolor="#555555" fontname="Tableau Book" fontsize="9">
+Deals won:  </run>
+                <run fontcolor="#111111" fontname="Tableau Semibold" fontsize="9">&lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1002:qk]&gt;</run>
+              </formatted-text>
+            </customized-tooltip>
+            <customized-label>
+              <formatted-text>
+                <run fontcolor="#d4d4d8" fontname="Tableau Semibold" fontsize="9">&lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1002:qk]&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element="mark">
+                <format attr="mark-labels-show" value="true" />
+                <format attr="mark-labels-cull" value="false" />
+                <format attr="size" value="0.65" />
+                <format attr="mark-color" value="#ff6a3d" />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0b2bleadfunnel0olist0dash01].[none:segment_top:nk]</rows>
+        <cols>[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1002:qk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name="Sales reps">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontcolor="#f5f5f4" fontname="Tableau Semibold" fontsize="12">Top 10 sales reps</run>
+            <run fontcolor="#71717a" fontname="Tableau Book" fontsize="9">
+Deals won and median days to close. One rep closed 128 deals.</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="Olist leads 2018" name="federated.0b2bleadfunnel0olist0dash01" />
+          </datasources>
+          <datasource-dependencies datasource="federated.0b2bleadfunnel0olist0dash01">
+            <column caption="Days to close" datatype="integer" name="[days_to_close]" role="measure" type="quantitative" />
+            <column caption="Won" datatype="integer" name="[won]" role="measure" type="quantitative" />
+            <column caption="Sales rep (top 10)" datatype="string" name="[rep_top]" role="dimension" type="nominal" />
+            <column caption="Median days to close" datatype="real" default-format="n#,##0" name="[Calculation_1004]" role="measure" type="quantitative">
+              <calculation class="tableau" formula="MEDIAN([days_to_close])" />
+            </column>
+            <column caption="Deals won" datatype="integer" default-format="n#,##0" name="[Calculation_1002]" role="measure" type="quantitative">
+              <calculation class="tableau" formula="SUM([won])" />
+            </column>
+            <column-instance column="[rep_top]" derivation="None" name="[none:rep_top:nk]" pivot="key" type="nominal" />
+            <column-instance column="[Calculation_1002]" derivation="User" name="[usr:Calculation_1002:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[Calculation_1002]" derivation="User" name="[usr:Calculation_1002:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[Calculation_1004]" derivation="User" name="[usr:Calculation_1004:qk]" pivot="key" type="quantitative" />
+          </datasource-dependencies>
+          <filter class="categorical" column="[federated.0b2bleadfunnel0olist0dash01].[none:rep_top:nk]">
+            <groupfilter function="except" user:ui-domain="database" user:ui-enumeration="exclusive" user:ui-marker="enumerate">
+              <groupfilter function="level-members" level="[none:rep_top:nk]" />
+              <groupfilter function="union">
+                <groupfilter function="member" level="[none:rep_top:nk]" member="%null%" />
+                <groupfilter function="member" level="[none:rep_top:nk]" member="&quot;Other reps&quot;" />
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <computed-sort column="[federated.0b2bleadfunnel0olist0dash01].[none:rep_top:nk]" direction="DESC" using="[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1002:qk]" />
+          <aggregation value="true" />
+        </view>
+        <style>
+          <style-rule element="worksheet">
+            <format attr="font-family" value="Tableau Book" />
+            <format attr="color" value="#d4d4d8" />
+            <format attr="display-field-labels" scope="cols" value="false" />
+            <format attr="display-field-labels" scope="rows" value="false" />
+          </style-rule>
+          <style-rule element="table">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="pane">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="header">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="label">
+            <format attr="color" value="#d4d4d8" />
+            <format attr="font-size" value="10" />
+          </style-rule>
+          <style-rule element="axis">
+            <format attr="color" value="#71717a" />
+            <format attr="font-size" value="9" />
+          </style-rule>
+          <style-rule element="gridline">
+            <format attr="stroke-color" value="#27272a" />
+            <format attr="line-visibility" value="on" />
+          </style-rule>
+          <style-rule element="zeroline">
+            <format attr="line-visibility" value="off" />
+          </style-rule>
+          <style-rule element="table-div">
+            <format attr="line-visibility" scope="rows" value="off" />
+            <format attr="line-visibility" scope="cols" value="off" />
+          </style-rule>
+          <style-rule element="header-div">
+            <format attr="line-visibility" scope="rows" value="off" />
+            <format attr="line-visibility" scope="cols" value="off" />
+          </style-rule>
+          <style-rule element="title">
+            <format attr="background-color" value="#141417" />
+          </style-rule>
+          <style-rule element="axis">
+            <format attr="display" class="0" field="[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1002:qk]" scope="cols" value="false" />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-allow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Bar" />
+            <encodings>
+              <text column="[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1002:qk]" />
+              <text column="[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1004:qk]" />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontcolor="#111111" fontname="Tableau Bold" fontsize="11">&lt;[federated.0b2bleadfunnel0olist0dash01].[none:rep_top:nk]&gt;</run>
+                <run fontcolor="#555555" fontname="Tableau Book" fontsize="9">
+Deals won:  </run>
+                <run fontcolor="#111111" fontname="Tableau Semibold" fontsize="9">&lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1002:qk]&gt;</run>
+                <run fontcolor="#555555" fontname="Tableau Book" fontsize="9">
+Median days to close:  </run>
+                <run fontcolor="#111111" fontname="Tableau Semibold" fontsize="9">&lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1004:qk]&gt;</run>
+              </formatted-text>
+            </customized-tooltip>
+            <customized-label>
+              <formatted-text>
+                <run fontcolor="#d4d4d8" fontname="Tableau Semibold" fontsize="9">&lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1002:qk]&gt;</run>
+                <run fontcolor="#71717a" fontname="Tableau Book" fontsize="9">  &lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1004:qk]&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element="mark">
+                <format attr="mark-labels-show" value="true" />
+                <format attr="mark-labels-cull" value="false" />
+                <format attr="size" value="0.65" />
+                <format attr="mark-color" value="#ff6a3d" />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0b2bleadfunnel0olist0dash01].[none:rep_top:nk]</rows>
+        <cols>[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1002:qk]</cols>
+      </table>
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name="Funnel">
+      <style>
+        <style-rule element="table">
+          <format attr="background-color" value="#09090b" />
+        </style-rule>
+      </style>
+      <size maxheight="1560" maxwidth="1400" minheight="1560" minwidth="1400" sizing-mode="fixed" />
+      <zones>
+        <zone h="100000" id="1" type-v2="layout-basic" w="100000" x="0" y="0">
+          <zone id="11" type-v2="text" x="1714" y="1410" w="96571" h="1154">
+            <formatted-text>
+              <run fontcolor="#ff6a3d" fontname="Tableau Semibold" fontsize="9">B2B LEAD FUNNEL  ·  OLIST</run>
+            </formatted-text>
+            <zone-style>
+              <format attr="border-style" value="none" />
+              <format attr="margin" value="0" />
+              <format attr="padding" value="0" />
+            </zone-style>
+          </zone>
+          <zone id="12" type-v2="text" x="1714" y="2692" w="96571" h="2821">
+            <formatted-text>
+              <run fontcolor="#f5f5f4" fontname="Tableau Bold" fontsize="26">Where do we lose B2B leads?</run>
+            </formatted-text>
+            <zone-style>
+              <format attr="border-style" value="none" />
+              <format attr="margin" value="0" />
+              <format attr="padding" value="0" />
+            </zone-style>
+          </zone>
+          <zone id="13" type-v2="text" x="1714" y="5641" w="96571" h="1538">
+            <formatted-text>
+              <run fontcolor="#71717a" fontname="Tableau Book" fontsize="11">5,998 inbound leads from sellers who asked to join the Olist marketplace, January to May 2018, and the 781 that became signed deals. Click a channel in either chart at the top to filter the whole page.</run>
+            </formatted-text>
+            <zone-style>
+              <format attr="border-style" value="none" />
+              <format attr="margin" value="0" />
+              <format attr="padding" value="0" />
+            </zone-style>
+          </zone>
+          <zone id="14" name="KPI Leads" show-title="true" x="1714" y="8205" w="23286" h="7179">
+            <zone-style>
+              <format attr="background-color" value="#141417" />
+              <format attr="border-style" value="none" />
+              <format attr="border-width" value="0" />
+              <format attr="margin" value="0" />
+              <format attr="padding" value="14" />
+            </zone-style>
+          </zone>
+          <zone id="15" name="KPI Deals" show-title="true" x="26143" y="8205" w="23286" h="7179">
+            <zone-style>
+              <format attr="background-color" value="#141417" />
+              <format attr="border-style" value="none" />
+              <format attr="border-width" value="0" />
+              <format attr="margin" value="0" />
+              <format attr="padding" value="14" />
+            </zone-style>
+          </zone>
+          <zone id="16" name="KPI Conversion" show-title="true" x="50571" y="8205" w="23286" h="7179">
+            <zone-style>
+              <format attr="background-color" value="#141417" />
+              <format attr="border-style" value="none" />
+              <format attr="border-width" value="0" />
+              <format attr="margin" value="0" />
+              <format attr="padding" value="14" />
+            </zone-style>
+          </zone>
+          <zone id="17" name="KPI Days" show-title="true" x="75000" y="8205" w="23286" h="7179">
+            <zone-style>
+              <format attr="background-color" value="#141417" />
+              <format attr="border-style" value="none" />
+              <format attr="border-width" value="0" />
+              <format attr="margin" value="0" />
+              <format attr="padding" value="14" />
+            </zone-style>
+          </zone>
+          <zone id="18" name="Channel matrix" show-title="true" x="1714" y="16410" w="47714" h="27564">
+            <zone-style>
+              <format attr="background-color" value="#141417" />
+              <format attr="border-style" value="none" />
+              <format attr="border-width" value="0" />
+              <format attr="margin" value="0" />
+              <format attr="padding" value="14" />
+            </zone-style>
+          </zone>
+          <zone id="19" name="Leads vs deals" show-title="true" x="50571" y="16410" w="47714" h="27564">
+            <zone-style>
+              <format attr="background-color" value="#141417" />
+              <format attr="border-style" value="none" />
+              <format attr="border-width" value="0" />
+              <format attr="margin" value="0" />
+              <format attr="padding" value="14" />
+            </zone-style>
+          </zone>
+          <zone id="20" name="Leads per week" show-title="true" x="1714" y="45000" w="59874" h="21795">
+            <zone-style>
+              <format attr="background-color" value="#141417" />
+              <format attr="border-style" value="none" />
+              <format attr="border-width" value="0" />
+              <format attr="margin" value="0" />
+              <format attr="padding" value="14" />
+            </zone-style>
+          </zone>
+          <zone id="21" name="Close speed" show-title="true" x="62731" y="45000" w="35554" h="21795">
+            <zone-style>
+              <format attr="background-color" value="#141417" />
+              <format attr="border-style" value="none" />
+              <format attr="border-width" value="0" />
+              <format attr="margin" value="0" />
+              <format attr="padding" value="14" />
+            </zone-style>
+          </zone>
+          <zone id="22" name="Landing pages" show-title="true" x="1714" y="67821" w="31429" h="25641">
+            <zone-style>
+              <format attr="background-color" value="#141417" />
+              <format attr="border-style" value="none" />
+              <format attr="border-width" value="0" />
+              <format attr="margin" value="0" />
+              <format attr="padding" value="14" />
+            </zone-style>
+          </zone>
+          <zone id="23" name="Segments" show-title="true" x="34286" y="67821" w="31429" h="25641">
+            <zone-style>
+              <format attr="background-color" value="#141417" />
+              <format attr="border-style" value="none" />
+              <format attr="border-width" value="0" />
+              <format attr="margin" value="0" />
+              <format attr="padding" value="14" />
+            </zone-style>
+          </zone>
+          <zone id="24" name="Sales reps" show-title="true" x="66857" y="67821" w="31429" h="25641">
+            <zone-style>
+              <format attr="background-color" value="#141417" />
+              <format attr="border-style" value="none" />
+              <format attr="border-width" value="0" />
+              <format attr="margin" value="0" />
+              <format attr="padding" value="14" />
+            </zone-style>
+          </zone>
+          <zone id="25" type-v2="text" x="1714" y="94744" w="96571" h="2564">
+            <formatted-text>
+              <run fontcolor="#71717a" fontname="Tableau Book" fontsize="9">Data: Olist Marketing Funnel (Kaggle, CC BY-NC-SA 4.0). Leads with first contact January to May 2018; deals won up to November 2018. Deals only start in December 2017, so 2017 leads are left out.  ·  Built by Artem Zadvoryanskiy</run>
+            </formatted-text>
+            <zone-style>
+              <format attr="border-style" value="none" />
+              <format attr="margin" value="0" />
+              <format attr="padding" value="0" />
+            </zone-style>
+          </zone>
+          <zone-style>
+            <format attr="background-color" value="#09090b" />
+          </zone-style>
+        </zone>
+      </zones>
+    </dashboard>
+  </dashboards>
+  <windows source-height="30">
+    <window class="worksheet" hidden="true" name="KPI Leads">
+      <cards>
+        <edge name="left">
+          <strip size="160">
+            <card type="pages" />
+            <card type="filters" />
+            <card type="marks" />
+          </strip>
+        </edge>
+        <edge name="top">
+          <strip size="2147483647">
+            <card type="columns" />
+          </strip>
+          <strip size="2147483647">
+            <card type="rows" />
+          </strip>
+          <strip size="31">
+            <card type="title" />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class="worksheet" hidden="true" name="KPI Deals">
+      <cards>
+        <edge name="left">
+          <strip size="160">
+            <card type="pages" />
+            <card type="filters" />
+            <card type="marks" />
+          </strip>
+        </edge>
+        <edge name="top">
+          <strip size="2147483647">
+            <card type="columns" />
+          </strip>
+          <strip size="2147483647">
+            <card type="rows" />
+          </strip>
+          <strip size="31">
+            <card type="title" />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class="worksheet" hidden="true" name="KPI Conversion">
+      <cards>
+        <edge name="left">
+          <strip size="160">
+            <card type="pages" />
+            <card type="filters" />
+            <card type="marks" />
+          </strip>
+        </edge>
+        <edge name="top">
+          <strip size="2147483647">
+            <card type="columns" />
+          </strip>
+          <strip size="2147483647">
+            <card type="rows" />
+          </strip>
+          <strip size="31">
+            <card type="title" />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class="worksheet" hidden="true" name="KPI Days">
+      <cards>
+        <edge name="left">
+          <strip size="160">
+            <card type="pages" />
+            <card type="filters" />
+            <card type="marks" />
+          </strip>
+        </edge>
+        <edge name="top">
+          <strip size="2147483647">
+            <card type="columns" />
+          </strip>
+          <strip size="2147483647">
+            <card type="rows" />
+          </strip>
+          <strip size="31">
+            <card type="title" />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class="worksheet" hidden="true" name="Channel matrix">
+      <cards>
+        <edge name="left">
+          <strip size="160">
+            <card type="pages" />
+            <card type="filters" />
+            <card type="marks" />
+          </strip>
+        </edge>
+        <edge name="top">
+          <strip size="2147483647">
+            <card type="columns" />
+          </strip>
+          <strip size="2147483647">
+            <card type="rows" />
+          </strip>
+          <strip size="31">
+            <card type="title" />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class="worksheet" hidden="true" name="Leads vs deals">
+      <cards>
+        <edge name="left">
+          <strip size="160">
+            <card type="pages" />
+            <card type="filters" />
+            <card type="marks" />
+          </strip>
+        </edge>
+        <edge name="top">
+          <strip size="2147483647">
+            <card type="columns" />
+          </strip>
+          <strip size="2147483647">
+            <card type="rows" />
+          </strip>
+          <strip size="31">
+            <card type="title" />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class="worksheet" hidden="true" name="Leads per week">
+      <cards>
+        <edge name="left">
+          <strip size="160">
+            <card type="pages" />
+            <card type="filters" />
+            <card type="marks" />
+          </strip>
+        </edge>
+        <edge name="top">
+          <strip size="2147483647">
+            <card type="columns" />
+          </strip>
+          <strip size="2147483647">
+            <card type="rows" />
+          </strip>
+          <strip size="31">
+            <card type="title" />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class="worksheet" hidden="true" name="Close speed">
+      <cards>
+        <edge name="left">
+          <strip size="160">
+            <card type="pages" />
+            <card type="filters" />
+            <card type="marks" />
+          </strip>
+        </edge>
+        <edge name="top">
+          <strip size="2147483647">
+            <card type="columns" />
+          </strip>
+          <strip size="2147483647">
+            <card type="rows" />
+          </strip>
+          <strip size="31">
+            <card type="title" />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class="worksheet" hidden="true" name="Landing pages">
+      <cards>
+        <edge name="left">
+          <strip size="160">
+            <card type="pages" />
+            <card type="filters" />
+            <card type="marks" />
+          </strip>
+        </edge>
+        <edge name="top">
+          <strip size="2147483647">
+            <card type="columns" />
+          </strip>
+          <strip size="2147483647">
+            <card type="rows" />
+          </strip>
+          <strip size="31">
+            <card type="title" />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class="worksheet" hidden="true" name="Segments">
+      <cards>
+        <edge name="left">
+          <strip size="160">
+            <card type="pages" />
+            <card type="filters" />
+            <card type="marks" />
+          </strip>
+        </edge>
+        <edge name="top">
+          <strip size="2147483647">
+            <card type="columns" />
+          </strip>
+          <strip size="2147483647">
+            <card type="rows" />
+          </strip>
+          <strip size="31">
+            <card type="title" />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class="worksheet" hidden="true" name="Sales reps">
+      <cards>
+        <edge name="left">
+          <strip size="160">
+            <card type="pages" />
+            <card type="filters" />
+            <card type="marks" />
+          </strip>
+        </edge>
+        <edge name="top">
+          <strip size="2147483647">
+            <card type="columns" />
+          </strip>
+          <strip size="2147483647">
+            <card type="rows" />
+          </strip>
+          <strip size="31">
+            <card type="title" />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class="dashboard" maximized="true" name="Funnel">
+      <viewpoints>
+        <viewpoint name="KPI Leads">
+          <zoom type="entire-view" />
+        </viewpoint>
+        <viewpoint name="KPI Deals">
+          <zoom type="entire-view" />
+        </viewpoint>
+        <viewpoint name="KPI Conversion">
+          <zoom type="entire-view" />
+        </viewpoint>
+        <viewpoint name="KPI Days">
+          <zoom type="entire-view" />
+        </viewpoint>
+        <viewpoint name="Channel matrix">
+          <zoom type="entire-view" />
+        </viewpoint>
+        <viewpoint name="Leads vs deals">
+          <zoom type="entire-view" />
+        </viewpoint>
+        <viewpoint name="Leads per week">
+          <zoom type="entire-view" />
+        </viewpoint>
+        <viewpoint name="Close speed">
+          <zoom type="entire-view" />
+        </viewpoint>
+        <viewpoint name="Landing pages">
+          <zoom type="entire-view" />
+        </viewpoint>
+        <viewpoint name="Segments">
+          <zoom type="entire-view" />
+        </viewpoint>
+        <viewpoint name="Sales reps">
+          <zoom type="entire-view" />
+        </viewpoint>
+      </viewpoints>
+      <active id="-1" />
+    </window>
+  </windows>
+</workbook>
