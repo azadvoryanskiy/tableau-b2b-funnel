@@ -74,26 +74,26 @@
       <style>
         <style-rule element="mark">
           <encoding attr="color" field="[usr:Calculation_1008:nk]" type="palette">
-            <map to="#ff6a3d">
+            <map to="#D6FA50">
               <bucket>"Above average"</bucket>
             </map>
-            <map to="#5b5b63">
+            <map to="#6B6B66">
               <bucket>"Below average"</bucket>
             </map>
           </encoding>
           <encoding attr="color" field="[none:Calculation_1010:nk]" type="palette">
-            <map to="#ff6a3d">
+            <map to="#D6FA50">
               <bucket>"Won"</bucket>
             </map>
-            <map to="#3f3f46">
+            <map to="#4A4A47">
               <bucket>"Not won"</bucket>
             </map>
           </encoding>
           <encoding attr="color" field="[:Measure Names]" type="palette">
-            <map to="#5b5b63">
+            <map to="#6B6B66">
               <bucket>"[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1005:qk]"</bucket>
             </map>
-            <map to="#ff6a3d">
+            <map to="#D6FA50">
               <bucket>"[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1006:qk]"</bucket>
             </map>
           </encoding>
@@ -126,7 +126,7 @@
       <layout-options>
         <title>
           <formatted-text>
-            <run fontcolor="#71717a" fontname="Tableau Semibold" fontsize="9">LEADS</run>
+            <run fontcolor="#8C8C87" fontname="Tableau Semibold" fontsize="9">LEADS</run>
           </formatted-text>
         </title>
       </layout-options>
@@ -147,29 +147,29 @@
         <style>
           <style-rule element="worksheet">
             <format attr="font-family" value="Tableau Book" />
-            <format attr="color" value="#d4d4d8" />
+            <format attr="color" value="#D4D4CF" />
             <format attr="display-field-labels" scope="cols" value="false" />
             <format attr="display-field-labels" scope="rows" value="false" />
           </style-rule>
           <style-rule element="table">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="pane">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="header">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="label">
-            <format attr="color" value="#d4d4d8" />
+            <format attr="color" value="#D4D4CF" />
             <format attr="font-size" value="10" />
           </style-rule>
           <style-rule element="axis">
-            <format attr="color" value="#71717a" />
+            <format attr="color" value="#8C8C87" />
             <format attr="font-size" value="9" />
           </style-rule>
           <style-rule element="gridline">
-            <format attr="stroke-color" value="#27272a" />
+            <format attr="stroke-color" value="#2A2A2A" />
             <format attr="line-visibility" value="on" />
           </style-rule>
           <style-rule element="zeroline">
@@ -184,7 +184,7 @@
             <format attr="line-visibility" scope="cols" value="off" />
           </style-rule>
           <style-rule element="title">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="cell">
             <format attr="text-align" value="center" />
@@ -202,7 +202,7 @@
             </encodings>
             <customized-label>
               <formatted-text>
-                <run fontalignment="1" fontcolor="#f5f5f4" fontname="Tableau Semibold" fontsize="30">&lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1001:qk]&gt;</run>
+                <run fontalignment="1" fontcolor="#FFFFFF" fontname="Tableau Semibold" fontsize="30">&lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1001:qk]&gt;</run>
               </formatted-text>
             </customized-label>
             <style>
@@ -221,7 +221,7 @@
       <layout-options>
         <title>
           <formatted-text>
-            <run fontcolor="#71717a" fontname="Tableau Semibold" fontsize="9">DEALS WON</run>
+            <run fontcolor="#8C8C87" fontname="Tableau Semibold" fontsize="9">DEALS WON</run>
           </formatted-text>
         </title>
       </layout-options>
@@ -242,29 +242,29 @@
         <style>
           <style-rule element="worksheet">
             <format attr="font-family" value="Tableau Book" />
-            <format attr="color" value="#d4d4d8" />
+            <format attr="color" value="#D4D4CF" />
             <format attr="display-field-labels" scope="cols" value="false" />
             <format attr="display-field-labels" scope="rows" value="false" />
           </style-rule>
           <style-rule element="table">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="pane">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="header">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="label">
-            <format attr="color" value="#d4d4d8" />
+            <format attr="color" value="#D4D4CF" />
             <format attr="font-size" value="10" />
           </style-rule>
           <style-rule element="axis">
-            <format attr="color" value="#71717a" />
+            <format attr="color" value="#8C8C87" />
             <format attr="font-size" value="9" />
           </style-rule>
           <style-rule element="gridline">
-            <format attr="stroke-color" value="#27272a" />
+            <format attr="stroke-color" value="#2A2A2A" />
             <format attr="line-visibility" value="on" />
           </style-rule>
           <style-rule element="zeroline">
@@ -279,7 +279,7 @@
             <format attr="line-visibility" scope="cols" value="off" />
           </style-rule>
           <style-rule element="title">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="cell">
             <format attr="text-align" value="center" />
@@ -297,7 +297,7 @@
             </encodings>
             <customized-label>
               <formatted-text>
-                <run fontalignment="1" fontcolor="#f5f5f4" fontname="Tableau Semibold" fontsize="30">&lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1002:qk]&gt;</run>
+                <run fontalignment="1" fontcolor="#FFFFFF" fontname="Tableau Semibold" fontsize="30">&lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1002:qk]&gt;</run>
               </formatted-text>
             </customized-label>
             <style>
@@ -316,7 +316,7 @@
       <layout-options>
         <title>
           <formatted-text>
-            <run fontcolor="#71717a" fontname="Tableau Semibold" fontsize="9">LEAD-TO-DEAL CONVERSION</run>
+            <run fontcolor="#8C8C87" fontname="Tableau Semibold" fontsize="9">LEAD-TO-DEAL CONVERSION</run>
           </formatted-text>
         </title>
       </layout-options>
@@ -338,29 +338,29 @@
         <style>
           <style-rule element="worksheet">
             <format attr="font-family" value="Tableau Book" />
-            <format attr="color" value="#d4d4d8" />
+            <format attr="color" value="#D4D4CF" />
             <format attr="display-field-labels" scope="cols" value="false" />
             <format attr="display-field-labels" scope="rows" value="false" />
           </style-rule>
           <style-rule element="table">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="pane">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="header">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="label">
-            <format attr="color" value="#d4d4d8" />
+            <format attr="color" value="#D4D4CF" />
             <format attr="font-size" value="10" />
           </style-rule>
           <style-rule element="axis">
-            <format attr="color" value="#71717a" />
+            <format attr="color" value="#8C8C87" />
             <format attr="font-size" value="9" />
           </style-rule>
           <style-rule element="gridline">
-            <format attr="stroke-color" value="#27272a" />
+            <format attr="stroke-color" value="#2A2A2A" />
             <format attr="line-visibility" value="on" />
           </style-rule>
           <style-rule element="zeroline">
@@ -375,7 +375,7 @@
             <format attr="line-visibility" scope="cols" value="off" />
           </style-rule>
           <style-rule element="title">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="cell">
             <format attr="text-align" value="center" />
@@ -393,7 +393,7 @@
             </encodings>
             <customized-label>
               <formatted-text>
-                <run fontalignment="1" fontcolor="#f5f5f4" fontname="Tableau Semibold" fontsize="30">&lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1003:qk]&gt;</run>
+                <run fontalignment="1" fontcolor="#FFFFFF" fontname="Tableau Semibold" fontsize="30">&lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1003:qk]&gt;</run>
               </formatted-text>
             </customized-label>
             <style>
@@ -412,7 +412,7 @@
       <layout-options>
         <title>
           <formatted-text>
-            <run fontcolor="#71717a" fontname="Tableau Semibold" fontsize="9">MEDIAN DAYS TO CLOSE</run>
+            <run fontcolor="#8C8C87" fontname="Tableau Semibold" fontsize="9">MEDIAN DAYS TO CLOSE</run>
           </formatted-text>
         </title>
       </layout-options>
@@ -433,29 +433,29 @@
         <style>
           <style-rule element="worksheet">
             <format attr="font-family" value="Tableau Book" />
-            <format attr="color" value="#d4d4d8" />
+            <format attr="color" value="#D4D4CF" />
             <format attr="display-field-labels" scope="cols" value="false" />
             <format attr="display-field-labels" scope="rows" value="false" />
           </style-rule>
           <style-rule element="table">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="pane">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="header">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="label">
-            <format attr="color" value="#d4d4d8" />
+            <format attr="color" value="#D4D4CF" />
             <format attr="font-size" value="10" />
           </style-rule>
           <style-rule element="axis">
-            <format attr="color" value="#71717a" />
+            <format attr="color" value="#8C8C87" />
             <format attr="font-size" value="9" />
           </style-rule>
           <style-rule element="gridline">
-            <format attr="stroke-color" value="#27272a" />
+            <format attr="stroke-color" value="#2A2A2A" />
             <format attr="line-visibility" value="on" />
           </style-rule>
           <style-rule element="zeroline">
@@ -470,7 +470,7 @@
             <format attr="line-visibility" scope="cols" value="off" />
           </style-rule>
           <style-rule element="title">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="cell">
             <format attr="text-align" value="center" />
@@ -488,7 +488,7 @@
             </encodings>
             <customized-label>
               <formatted-text>
-                <run fontalignment="1" fontcolor="#f5f5f4" fontname="Tableau Semibold" fontsize="30">&lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1004:qk]&gt;</run>
+                <run fontalignment="1" fontcolor="#FFFFFF" fontname="Tableau Semibold" fontsize="30">&lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1004:qk]&gt;</run>
               </formatted-text>
             </customized-label>
             <style>
@@ -507,8 +507,8 @@
       <layout-options>
         <title>
           <formatted-text>
-            <run fontcolor="#f5f5f4" fontname="Tableau Semibold" fontsize="12">Volume vs. quality by channel</run>
-            <run fontcolor="#71717a" fontname="Tableau Book" fontsize="9">
+            <run fontcolor="#FFFFFF" fontname="Tableau Semibold" fontsize="12">Volume vs. quality by channel</run>
+            <run fontcolor="#8C8C87" fontname="Tableau Book" fontsize="9">
 Bubble size = deals won. Dashed line = average conversion. Click a bubble to filter the page.</run>
           </formatted-text>
         </title>
@@ -549,29 +549,29 @@ Bubble size = deals won. Dashed line = average conversion. Click a bubble to fil
         <style>
           <style-rule element="worksheet">
             <format attr="font-family" value="Tableau Book" />
-            <format attr="color" value="#d4d4d8" />
+            <format attr="color" value="#D4D4CF" />
             <format attr="display-field-labels" scope="cols" value="false" />
             <format attr="display-field-labels" scope="rows" value="false" />
           </style-rule>
           <style-rule element="table">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="pane">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="header">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="label">
-            <format attr="color" value="#d4d4d8" />
+            <format attr="color" value="#D4D4CF" />
             <format attr="font-size" value="10" />
           </style-rule>
           <style-rule element="axis">
-            <format attr="color" value="#71717a" />
+            <format attr="color" value="#8C8C87" />
             <format attr="font-size" value="9" />
           </style-rule>
           <style-rule element="gridline">
-            <format attr="stroke-color" value="#27272a" />
+            <format attr="stroke-color" value="#2A2A2A" />
             <format attr="line-visibility" value="on" />
           </style-rule>
           <style-rule element="zeroline">
@@ -586,10 +586,10 @@ Bubble size = deals won. Dashed line = average conversion. Click a bubble to fil
             <format attr="line-visibility" scope="cols" value="off" />
           </style-rule>
           <style-rule element="title">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="refline">
-            <format attr="stroke-color" value="#71717a" />
+            <format attr="stroke-color" value="#8C8C87" />
             <format attr="stroke-size" value="1" />
             <format attr="line-pattern-only" value="dashed" />
           </style-rule>
@@ -623,7 +623,7 @@ Conversion:  </run>
             </customized-tooltip>
             <customized-label>
               <formatted-text>
-                <run fontcolor="#d4d4d8" fontname="Tableau Book" fontsize="9">&lt;[federated.0b2bleadfunnel0olist0dash01].[none:channel:nk]&gt;</run>
+                <run fontcolor="#D4D4CF" fontname="Tableau Book" fontsize="9">&lt;[federated.0b2bleadfunnel0olist0dash01].[none:channel:nk]&gt;</run>
               </formatted-text>
             </customized-label>
             <style>
@@ -643,12 +643,12 @@ Conversion:  </run>
       <layout-options>
         <title>
           <formatted-text>
-            <run fontcolor="#f5f5f4" fontname="Tableau Semibold" fontsize="12">Share of leads vs. share of deals won</run>
-            <run fontcolor="#8b8b93" fontname="Tableau Semibold" fontsize="9">
+            <run fontcolor="#FFFFFF" fontname="Tableau Semibold" fontsize="12">Share of leads vs. share of deals won</run>
+            <run fontcolor="#8C8C87" fontname="Tableau Semibold" fontsize="9">
 Grey</run>
-            <run fontcolor="#71717a" fontname="Tableau Book" fontsize="9"> = share of all leads.  </run>
-            <run fontcolor="#ff6a3d" fontname="Tableau Semibold" fontsize="9">Orange</run>
-            <run fontcolor="#71717a" fontname="Tableau Book" fontsize="9"> = share of all deals won. Social and email bring far more leads than deals.</run>
+            <run fontcolor="#8C8C87" fontname="Tableau Book" fontsize="9"> = share of all leads.  </run>
+            <run fontcolor="#D6FA50" fontname="Tableau Semibold" fontsize="9">Lime</run>
+            <run fontcolor="#8C8C87" fontname="Tableau Book" fontsize="9"> = share of all deals won. Social and email bring far more leads than deals.</run>
           </formatted-text>
         </title>
       </layout-options>
@@ -696,29 +696,29 @@ Grey</run>
         <style>
           <style-rule element="worksheet">
             <format attr="font-family" value="Tableau Book" />
-            <format attr="color" value="#d4d4d8" />
+            <format attr="color" value="#D4D4CF" />
             <format attr="display-field-labels" scope="cols" value="false" />
             <format attr="display-field-labels" scope="rows" value="false" />
           </style-rule>
           <style-rule element="table">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="pane">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="header">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="label">
-            <format attr="color" value="#d4d4d8" />
+            <format attr="color" value="#D4D4CF" />
             <format attr="font-size" value="10" />
           </style-rule>
           <style-rule element="axis">
-            <format attr="color" value="#71717a" />
+            <format attr="color" value="#8C8C87" />
             <format attr="font-size" value="9" />
           </style-rule>
           <style-rule element="gridline">
-            <format attr="stroke-color" value="#27272a" />
+            <format attr="stroke-color" value="#2A2A2A" />
             <format attr="line-visibility" value="on" />
           </style-rule>
           <style-rule element="zeroline">
@@ -733,7 +733,7 @@ Grey</run>
             <format attr="line-visibility" scope="cols" value="off" />
           </style-rule>
           <style-rule element="title">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="header">
             <format attr="width" field="[federated.0b2bleadfunnel0olist0dash01].[none:channel:nk]" value="112" />
@@ -757,7 +757,7 @@ Grey</run>
             </encodings>
             <customized-label>
               <formatted-text>
-                <run fontcolor="#d4d4d8" fontname="Tableau Book" fontsize="8">&lt;[federated.0b2bleadfunnel0olist0dash01].[Multiple Values]&gt;</run>
+                <run fontcolor="#D4D4CF" fontname="Tableau Book" fontsize="8">&lt;[federated.0b2bleadfunnel0olist0dash01].[Multiple Values]&gt;</run>
               </formatted-text>
             </customized-label>
             <style>
@@ -777,11 +777,11 @@ Grey</run>
       <layout-options>
         <title>
           <formatted-text>
-            <run fontcolor="#f5f5f4" fontname="Tableau Semibold" fontsize="12">Leads per week</run>
-            <run fontcolor="#71717a" fontname="Tableau Book" fontsize="9">
+            <run fontcolor="#FFFFFF" fontname="Tableau Semibold" fontsize="12">Leads per week</run>
+            <run fontcolor="#8C8C87" fontname="Tableau Book" fontsize="9">
 Each bar is one week of new leads by first contact date. </run>
-            <run fontcolor="#ff6a3d" fontname="Tableau Semibold" fontsize="9">Orange</run>
-            <run fontcolor="#71717a" fontname="Tableau Book" fontsize="9"> = later won.</run>
+            <run fontcolor="#D6FA50" fontname="Tableau Semibold" fontsize="9">Lime</run>
+            <run fontcolor="#8C8C87" fontname="Tableau Book" fontsize="9"> = later won.</run>
           </formatted-text>
         </title>
       </layout-options>
@@ -812,29 +812,29 @@ Each bar is one week of new leads by first contact date. </run>
         <style>
           <style-rule element="worksheet">
             <format attr="font-family" value="Tableau Book" />
-            <format attr="color" value="#d4d4d8" />
+            <format attr="color" value="#D4D4CF" />
             <format attr="display-field-labels" scope="cols" value="false" />
             <format attr="display-field-labels" scope="rows" value="false" />
           </style-rule>
           <style-rule element="table">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="pane">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="header">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="label">
-            <format attr="color" value="#d4d4d8" />
+            <format attr="color" value="#D4D4CF" />
             <format attr="font-size" value="10" />
           </style-rule>
           <style-rule element="axis">
-            <format attr="color" value="#71717a" />
+            <format attr="color" value="#8C8C87" />
             <format attr="font-size" value="9" />
           </style-rule>
           <style-rule element="gridline">
-            <format attr="stroke-color" value="#27272a" />
+            <format attr="stroke-color" value="#2A2A2A" />
             <format attr="line-visibility" value="on" />
           </style-rule>
           <style-rule element="zeroline">
@@ -849,7 +849,7 @@ Each bar is one week of new leads by first contact date. </run>
             <format attr="line-visibility" scope="cols" value="off" />
           </style-rule>
           <style-rule element="title">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
         </style>
         <panes>
@@ -888,8 +888,8 @@ Outcome:  </run>
       <layout-options>
         <title>
           <formatted-text>
-            <run fontcolor="#f5f5f4" fontname="Tableau Semibold" fontsize="12">How fast deals close</run>
-            <run fontcolor="#71717a" fontname="Tableau Book" fontsize="9">
+            <run fontcolor="#FFFFFF" fontname="Tableau Semibold" fontsize="12">How fast deals close</run>
+            <run fontcolor="#8C8C87" fontname="Tableau Book" fontsize="9">
 Days from first contact to deal won. 71% of deals close within 30 days.</run>
           </formatted-text>
         </title>
@@ -942,29 +942,29 @@ Days from first contact to deal won. 71% of deals close within 30 days.</run>
         <style>
           <style-rule element="worksheet">
             <format attr="font-family" value="Tableau Book" />
-            <format attr="color" value="#d4d4d8" />
+            <format attr="color" value="#D4D4CF" />
             <format attr="display-field-labels" scope="cols" value="false" />
             <format attr="display-field-labels" scope="rows" value="false" />
           </style-rule>
           <style-rule element="table">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="pane">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="header">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="label">
-            <format attr="color" value="#d4d4d8" />
+            <format attr="color" value="#D4D4CF" />
             <format attr="font-size" value="10" />
           </style-rule>
           <style-rule element="axis">
-            <format attr="color" value="#71717a" />
+            <format attr="color" value="#8C8C87" />
             <format attr="font-size" value="9" />
           </style-rule>
           <style-rule element="gridline">
-            <format attr="stroke-color" value="#27272a" />
+            <format attr="stroke-color" value="#2A2A2A" />
             <format attr="line-visibility" value="on" />
           </style-rule>
           <style-rule element="zeroline">
@@ -979,7 +979,7 @@ Days from first contact to deal won. 71% of deals close within 30 days.</run>
             <format attr="line-visibility" scope="cols" value="off" />
           </style-rule>
           <style-rule element="title">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="axis">
             <format attr="display" class="0" field="[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1002:qk]" scope="rows" value="false" />
@@ -1007,14 +1007,14 @@ Share of deals:  </run>
             </customized-tooltip>
             <customized-label>
               <formatted-text>
-                <run fontcolor="#d4d4d8" fontname="Tableau Semibold" fontsize="9">&lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1009:qk]&gt;</run>
+                <run fontcolor="#D4D4CF" fontname="Tableau Semibold" fontsize="9">&lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1009:qk]&gt;</run>
               </formatted-text>
             </customized-label>
             <style>
               <style-rule element="mark">
                 <format attr="mark-labels-show" value="true" />
                 <format attr="mark-labels-cull" value="false" />
-                <format attr="mark-color" value="#ff6a3d" />
+                <format attr="mark-color" value="#D6FA50" />
                 <format attr="size" value="0.7" />
               </style-rule>
             </style>
@@ -1028,8 +1028,8 @@ Share of deals:  </run>
       <layout-options>
         <title>
           <formatted-text>
-            <run fontcolor="#f5f5f4" fontname="Tableau Semibold" fontsize="12">Top 10 landing pages</run>
-            <run fontcolor="#71717a" fontname="Tableau Book" fontsize="9">
+            <run fontcolor="#FFFFFF" fontname="Tableau Semibold" fontsize="12">Top 10 landing pages</run>
+            <run fontcolor="#8C8C87" fontname="Tableau Book" fontsize="9">
 Bar = leads. Label and colour = conversion: from 23% on the best page to under 4% on the weakest.</run>
           </formatted-text>
         </title>
@@ -1069,29 +1069,29 @@ Bar = leads. Label and colour = conversion: from 23% on the best page to under 4
         <style>
           <style-rule element="worksheet">
             <format attr="font-family" value="Tableau Book" />
-            <format attr="color" value="#d4d4d8" />
+            <format attr="color" value="#D4D4CF" />
             <format attr="display-field-labels" scope="cols" value="false" />
             <format attr="display-field-labels" scope="rows" value="false" />
           </style-rule>
           <style-rule element="table">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="pane">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="header">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="label">
-            <format attr="color" value="#d4d4d8" />
+            <format attr="color" value="#D4D4CF" />
             <format attr="font-size" value="10" />
           </style-rule>
           <style-rule element="axis">
-            <format attr="color" value="#71717a" />
+            <format attr="color" value="#8C8C87" />
             <format attr="font-size" value="9" />
           </style-rule>
           <style-rule element="gridline">
-            <format attr="stroke-color" value="#27272a" />
+            <format attr="stroke-color" value="#2A2A2A" />
             <format attr="line-visibility" value="on" />
           </style-rule>
           <style-rule element="zeroline">
@@ -1106,7 +1106,7 @@ Bar = leads. Label and colour = conversion: from 23% on the best page to under 4
             <format attr="line-visibility" scope="cols" value="off" />
           </style-rule>
           <style-rule element="title">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="axis">
             <format attr="display" class="0" field="[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1001:qk]" scope="cols" value="false" />
@@ -1114,8 +1114,8 @@ Bar = leads. Label and colour = conversion: from 23% on the best page to under 4
           <style-rule element="mark">
             <encoding attr="color" field="[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1003:qk]" type="custom-interpolated">
               <color-palette custom="true" name="" type="ordered-sequential">
-                <color>#4a2a20</color>
-                <color>#ff6a3d</color>
+                <color>#3B4515</color>
+                <color>#D6FA50</color>
               </color-palette>
             </encoding>
           </style-rule>
@@ -1144,8 +1144,8 @@ Conversion:  </run>
             </customized-tooltip>
             <customized-label>
               <formatted-text>
-                <run fontcolor="#d4d4d8" fontname="Tableau Semibold" fontsize="9">&lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1001:qk]&gt;</run>
-                <run fontcolor="#71717a" fontname="Tableau Book" fontsize="9">  ·  &lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1003:qk]&gt;</run>
+                <run fontcolor="#D4D4CF" fontname="Tableau Semibold" fontsize="9">&lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1001:qk]&gt;</run>
+                <run fontcolor="#8C8C87" fontname="Tableau Book" fontsize="9">  ·  &lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1003:qk]&gt;</run>
               </formatted-text>
             </customized-label>
             <style>
@@ -1165,8 +1165,8 @@ Conversion:  </run>
       <layout-options>
         <title>
           <formatted-text>
-            <run fontcolor="#f5f5f4" fontname="Tableau Semibold" fontsize="12">Won deals by business segment</run>
-            <run fontcolor="#71717a" fontname="Tableau Book" fontsize="9">
+            <run fontcolor="#FFFFFF" fontname="Tableau Semibold" fontsize="12">Won deals by business segment</run>
+            <run fontcolor="#8C8C87" fontname="Tableau Book" fontsize="9">
 Top 8 segments. Home decor and health &amp; beauty lead.</run>
           </formatted-text>
         </title>
@@ -1201,29 +1201,29 @@ Top 8 segments. Home decor and health &amp; beauty lead.</run>
         <style>
           <style-rule element="worksheet">
             <format attr="font-family" value="Tableau Book" />
-            <format attr="color" value="#d4d4d8" />
+            <format attr="color" value="#D4D4CF" />
             <format attr="display-field-labels" scope="cols" value="false" />
             <format attr="display-field-labels" scope="rows" value="false" />
           </style-rule>
           <style-rule element="table">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="pane">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="header">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="label">
-            <format attr="color" value="#d4d4d8" />
+            <format attr="color" value="#D4D4CF" />
             <format attr="font-size" value="10" />
           </style-rule>
           <style-rule element="axis">
-            <format attr="color" value="#71717a" />
+            <format attr="color" value="#8C8C87" />
             <format attr="font-size" value="9" />
           </style-rule>
           <style-rule element="gridline">
-            <format attr="stroke-color" value="#27272a" />
+            <format attr="stroke-color" value="#2A2A2A" />
             <format attr="line-visibility" value="on" />
           </style-rule>
           <style-rule element="zeroline">
@@ -1238,7 +1238,7 @@ Top 8 segments. Home decor and health &amp; beauty lead.</run>
             <format attr="line-visibility" scope="cols" value="off" />
           </style-rule>
           <style-rule element="title">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="axis">
             <format attr="display" class="0" field="[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1002:qk]" scope="cols" value="false" />
@@ -1263,7 +1263,7 @@ Deals won:  </run>
             </customized-tooltip>
             <customized-label>
               <formatted-text>
-                <run fontcolor="#d4d4d8" fontname="Tableau Semibold" fontsize="9">&lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1002:qk]&gt;</run>
+                <run fontcolor="#D4D4CF" fontname="Tableau Semibold" fontsize="9">&lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1002:qk]&gt;</run>
               </formatted-text>
             </customized-label>
             <style>
@@ -1271,7 +1271,7 @@ Deals won:  </run>
                 <format attr="mark-labels-show" value="true" />
                 <format attr="mark-labels-cull" value="false" />
                 <format attr="size" value="0.65" />
-                <format attr="mark-color" value="#ff6a3d" />
+                <format attr="mark-color" value="#D6FA50" />
               </style-rule>
             </style>
           </pane>
@@ -1284,8 +1284,8 @@ Deals won:  </run>
       <layout-options>
         <title>
           <formatted-text>
-            <run fontcolor="#f5f5f4" fontname="Tableau Semibold" fontsize="12">Top 10 sales reps</run>
-            <run fontcolor="#71717a" fontname="Tableau Book" fontsize="9">
+            <run fontcolor="#FFFFFF" fontname="Tableau Semibold" fontsize="12">Top 10 sales reps</run>
+            <run fontcolor="#8C8C87" fontname="Tableau Book" fontsize="9">
 Deals won and median days to close. One rep closed 128 deals.</run>
           </formatted-text>
         </title>
@@ -1325,29 +1325,29 @@ Deals won and median days to close. One rep closed 128 deals.</run>
         <style>
           <style-rule element="worksheet">
             <format attr="font-family" value="Tableau Book" />
-            <format attr="color" value="#d4d4d8" />
+            <format attr="color" value="#D4D4CF" />
             <format attr="display-field-labels" scope="cols" value="false" />
             <format attr="display-field-labels" scope="rows" value="false" />
           </style-rule>
           <style-rule element="table">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="pane">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="header">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="label">
-            <format attr="color" value="#d4d4d8" />
+            <format attr="color" value="#D4D4CF" />
             <format attr="font-size" value="10" />
           </style-rule>
           <style-rule element="axis">
-            <format attr="color" value="#71717a" />
+            <format attr="color" value="#8C8C87" />
             <format attr="font-size" value="9" />
           </style-rule>
           <style-rule element="gridline">
-            <format attr="stroke-color" value="#27272a" />
+            <format attr="stroke-color" value="#2A2A2A" />
             <format attr="line-visibility" value="on" />
           </style-rule>
           <style-rule element="zeroline">
@@ -1362,7 +1362,7 @@ Deals won and median days to close. One rep closed 128 deals.</run>
             <format attr="line-visibility" scope="cols" value="off" />
           </style-rule>
           <style-rule element="title">
-            <format attr="background-color" value="#141417" />
+            <format attr="background-color" value="#151515" />
           </style-rule>
           <style-rule element="axis">
             <format attr="display" class="0" field="[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1002:qk]" scope="cols" value="false" />
@@ -1391,8 +1391,8 @@ Median days to close:  </run>
             </customized-tooltip>
             <customized-label>
               <formatted-text>
-                <run fontcolor="#d4d4d8" fontname="Tableau Semibold" fontsize="9">&lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1002:qk]&gt;</run>
-                <run fontcolor="#71717a" fontname="Tableau Book" fontsize="9">  ·  &lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1004:qk]&gt; days</run>
+                <run fontcolor="#D4D4CF" fontname="Tableau Semibold" fontsize="9">&lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1002:qk]&gt;</run>
+                <run fontcolor="#8C8C87" fontname="Tableau Book" fontsize="9">  ·  &lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1004:qk]&gt; days</run>
               </formatted-text>
             </customized-label>
             <style>
@@ -1400,7 +1400,7 @@ Median days to close:  </run>
                 <format attr="mark-labels-show" value="true" />
                 <format attr="mark-labels-cull" value="false" />
                 <format attr="size" value="0.65" />
-                <format attr="mark-color" value="#ff6a3d" />
+                <format attr="mark-color" value="#D6FA50" />
               </style-rule>
             </style>
           </pane>
@@ -1414,7 +1414,7 @@ Median days to close:  </run>
     <dashboard name="Funnel">
       <style>
         <style-rule element="table">
-          <format attr="background-color" value="#09090b" />
+          <format attr="background-color" value="#0A0A0A" />
         </style-rule>
       </style>
       <size maxheight="1560" maxwidth="1400" minheight="1560" minwidth="1400" sizing-mode="fixed" />
@@ -1422,7 +1422,7 @@ Median days to close:  </run>
         <zone h="100000" id="1" type-v2="layout-basic" w="100000" x="0" y="0">
           <zone id="11" type-v2="text" x="1714" y="1410" w="96571" h="1154">
             <formatted-text>
-              <run fontcolor="#ff6a3d" fontname="Tableau Semibold" fontsize="9">B2B LEAD FUNNEL  ·  OLIST</run>
+              <run fontcolor="#D6FA50" fontname="Tableau Semibold" fontsize="9">B2B LEAD FUNNEL  ·  OLIST</run>
             </formatted-text>
             <zone-style>
               <format attr="border-style" value="none" />
@@ -1432,7 +1432,7 @@ Median days to close:  </run>
           </zone>
           <zone id="12" type-v2="text" x="1714" y="2692" w="96571" h="2821">
             <formatted-text>
-              <run fontcolor="#f5f5f4" fontname="Tableau Bold" fontsize="26">Where do we lose B2B leads?</run>
+              <run fontcolor="#FFFFFF" fontname="Tableau Bold" fontsize="26">Where do we lose B2B leads?</run>
             </formatted-text>
             <zone-style>
               <format attr="border-style" value="none" />
@@ -1442,7 +1442,7 @@ Median days to close:  </run>
           </zone>
           <zone id="13" type-v2="text" x="1714" y="5641" w="96571" h="1538">
             <formatted-text>
-              <run fontcolor="#71717a" fontname="Tableau Book" fontsize="11">5,998 inbound leads from sellers who asked to join Olist, January to May 2018, and the 781 that became deals. Click a channel in either top chart to filter the page.</run>
+              <run fontcolor="#8C8C87" fontname="Tableau Book" fontsize="11">5,998 inbound leads from sellers who asked to join Olist, January to May 2018, and the 781 that became deals. Click a channel in either top chart to filter the page.</run>
             </formatted-text>
             <zone-style>
               <format attr="border-style" value="none" />
@@ -1452,7 +1452,7 @@ Median days to close:  </run>
           </zone>
           <zone id="14" name="KPI Leads" show-title="true" x="1714" y="8205" w="23286" h="7179">
             <zone-style>
-              <format attr="background-color" value="#141417" />
+              <format attr="background-color" value="#151515" />
               <format attr="border-style" value="none" />
               <format attr="border-width" value="0" />
               <format attr="margin" value="0" />
@@ -1461,7 +1461,7 @@ Median days to close:  </run>
           </zone>
           <zone id="15" name="KPI Deals" show-title="true" x="26143" y="8205" w="23286" h="7179">
             <zone-style>
-              <format attr="background-color" value="#141417" />
+              <format attr="background-color" value="#151515" />
               <format attr="border-style" value="none" />
               <format attr="border-width" value="0" />
               <format attr="margin" value="0" />
@@ -1470,7 +1470,7 @@ Median days to close:  </run>
           </zone>
           <zone id="16" name="KPI Conversion" show-title="true" x="50571" y="8205" w="23286" h="7179">
             <zone-style>
-              <format attr="background-color" value="#141417" />
+              <format attr="background-color" value="#151515" />
               <format attr="border-style" value="none" />
               <format attr="border-width" value="0" />
               <format attr="margin" value="0" />
@@ -1479,7 +1479,7 @@ Median days to close:  </run>
           </zone>
           <zone id="17" name="KPI Days" show-title="true" x="75000" y="8205" w="23286" h="7179">
             <zone-style>
-              <format attr="background-color" value="#141417" />
+              <format attr="background-color" value="#151515" />
               <format attr="border-style" value="none" />
               <format attr="border-width" value="0" />
               <format attr="margin" value="0" />
@@ -1488,7 +1488,7 @@ Median days to close:  </run>
           </zone>
           <zone id="18" name="Channel matrix" show-title="true" x="1714" y="16410" w="47714" h="27564">
             <zone-style>
-              <format attr="background-color" value="#141417" />
+              <format attr="background-color" value="#151515" />
               <format attr="border-style" value="none" />
               <format attr="border-width" value="0" />
               <format attr="margin" value="0" />
@@ -1497,7 +1497,7 @@ Median days to close:  </run>
           </zone>
           <zone id="19" name="Leads vs deals" show-title="true" x="50571" y="16410" w="47714" h="27564">
             <zone-style>
-              <format attr="background-color" value="#141417" />
+              <format attr="background-color" value="#151515" />
               <format attr="border-style" value="none" />
               <format attr="border-width" value="0" />
               <format attr="margin" value="0" />
@@ -1506,7 +1506,7 @@ Median days to close:  </run>
           </zone>
           <zone id="20" name="Leads per week" show-title="true" x="1714" y="45000" w="59874" h="21795">
             <zone-style>
-              <format attr="background-color" value="#141417" />
+              <format attr="background-color" value="#151515" />
               <format attr="border-style" value="none" />
               <format attr="border-width" value="0" />
               <format attr="margin" value="0" />
@@ -1515,7 +1515,7 @@ Median days to close:  </run>
           </zone>
           <zone id="21" name="Close speed" show-title="true" x="62731" y="45000" w="35554" h="21795">
             <zone-style>
-              <format attr="background-color" value="#141417" />
+              <format attr="background-color" value="#151515" />
               <format attr="border-style" value="none" />
               <format attr="border-width" value="0" />
               <format attr="margin" value="0" />
@@ -1524,7 +1524,7 @@ Median days to close:  </run>
           </zone>
           <zone id="22" name="Landing pages" show-title="true" x="1714" y="67821" w="31429" h="25641">
             <zone-style>
-              <format attr="background-color" value="#141417" />
+              <format attr="background-color" value="#151515" />
               <format attr="border-style" value="none" />
               <format attr="border-width" value="0" />
               <format attr="margin" value="0" />
@@ -1533,7 +1533,7 @@ Median days to close:  </run>
           </zone>
           <zone id="23" name="Segments" show-title="true" x="34286" y="67821" w="31429" h="25641">
             <zone-style>
-              <format attr="background-color" value="#141417" />
+              <format attr="background-color" value="#151515" />
               <format attr="border-style" value="none" />
               <format attr="border-width" value="0" />
               <format attr="margin" value="0" />
@@ -1542,7 +1542,7 @@ Median days to close:  </run>
           </zone>
           <zone id="24" name="Sales reps" show-title="true" x="66857" y="67821" w="31429" h="25641">
             <zone-style>
-              <format attr="background-color" value="#141417" />
+              <format attr="background-color" value="#151515" />
               <format attr="border-style" value="none" />
               <format attr="border-width" value="0" />
               <format attr="margin" value="0" />
@@ -1551,7 +1551,7 @@ Median days to close:  </run>
           </zone>
           <zone id="25" type-v2="text" x="1714" y="94744" w="96571" h="2564">
             <formatted-text>
-              <run fontcolor="#71717a" fontname="Tableau Book" fontsize="9">Data: Olist Marketing Funnel (Kaggle, CC BY-NC-SA 4.0). Leads with first contact January to May 2018; deals won up to November 2018. Deals only start in December 2017, so 2017 leads are left out.  ·  Built by Artem Zadvoryanskiy</run>
+              <run fontcolor="#8C8C87" fontname="Tableau Book" fontsize="9">Data: Olist Marketing Funnel (Kaggle, CC BY-NC-SA 4.0). Leads with first contact January to May 2018; deals won up to November 2018. Deals only start in December 2017, so 2017 leads are left out.  ·  Built by Artem Zadvoryanskiy</run>
             </formatted-text>
             <zone-style>
               <format attr="border-style" value="none" />
@@ -1560,7 +1560,7 @@ Median days to close:  </run>
             </zone-style>
           </zone>
           <zone-style>
-            <format attr="background-color" value="#09090b" />
+            <format attr="background-color" value="#0A0A0A" />
             <format attr="padding" value="24" />
           </zone-style>
         </zone>
