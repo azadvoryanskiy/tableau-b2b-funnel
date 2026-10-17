@@ -735,6 +735,9 @@ Grey</run>
           <style-rule element="title">
             <format attr="background-color" value="#141417" />
           </style-rule>
+          <style-rule element="header">
+            <format attr="width" field="[federated.0b2bleadfunnel0olist0dash01].[none:channel:nk]" value="112" />
+          </style-rule>
           <style-rule element="axis">
             <format attr="display" class="0" field="[federated.0b2bleadfunnel0olist0dash01].[Multiple Values]" scope="cols" value="false" />
           </style-rule>
@@ -924,6 +927,16 @@ Days from first contact to deal won. 71% of deals close within 30 days.</run>
               <groupfilter function="member" level="[none:close_speed:nk]" member="%null%" />
             </groupfilter>
           </filter>
+          <manual-sort column="[federated.0b2bleadfunnel0olist0dash01].[none:close_speed:nk]" direction="ASC">
+            <dictionary>
+              <bucket>"1. Within a week"</bucket>
+              <bucket>"2. 8-14 days"</bucket>
+              <bucket>"3. 15-30 days"</bucket>
+              <bucket>"4. 31-60 days"</bucket>
+              <bucket>"5. 61-90 days"</bucket>
+              <bucket>"6. Over 90 days"</bucket>
+            </dictionary>
+          </manual-sort>
           <aggregation value="true" />
         </view>
         <style>
@@ -1132,7 +1145,7 @@ Conversion:  </run>
             <customized-label>
               <formatted-text>
                 <run fontcolor="#d4d4d8" fontname="Tableau Semibold" fontsize="9">&lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1001:qk]&gt;</run>
-                <run fontcolor="#71717a" fontname="Tableau Book" fontsize="9">  &lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1003:qk]&gt;</run>
+                <run fontcolor="#71717a" fontname="Tableau Book" fontsize="9">  ·  &lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1003:qk]&gt;</run>
               </formatted-text>
             </customized-label>
             <style>
@@ -1379,7 +1392,7 @@ Median days to close:  </run>
             <customized-label>
               <formatted-text>
                 <run fontcolor="#d4d4d8" fontname="Tableau Semibold" fontsize="9">&lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1002:qk]&gt;</run>
-                <run fontcolor="#71717a" fontname="Tableau Book" fontsize="9">  &lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1004:qk]&gt;</run>
+                <run fontcolor="#71717a" fontname="Tableau Book" fontsize="9">  ·  &lt;[federated.0b2bleadfunnel0olist0dash01].[usr:Calculation_1004:qk]&gt; days</run>
               </formatted-text>
             </customized-label>
             <style>
@@ -1429,7 +1442,7 @@ Median days to close:  </run>
           </zone>
           <zone id="13" type-v2="text" x="1714" y="5641" w="96571" h="1538">
             <formatted-text>
-              <run fontcolor="#71717a" fontname="Tableau Book" fontsize="11">5,998 inbound leads from sellers who asked to join the Olist marketplace, January to May 2018, and the 781 that became signed deals. Click a channel in either chart at the top to filter the whole page.</run>
+              <run fontcolor="#71717a" fontname="Tableau Book" fontsize="11">5,998 inbound leads from sellers who asked to join Olist, January to May 2018, and the 781 that became deals. Click a channel in either top chart to filter the page.</run>
             </formatted-text>
             <zone-style>
               <format attr="border-style" value="none" />
@@ -1548,6 +1561,7 @@ Median days to close:  </run>
           </zone>
           <zone-style>
             <format attr="background-color" value="#09090b" />
+            <format attr="padding" value="24" />
           </zone-style>
         </zone>
       </zones>
